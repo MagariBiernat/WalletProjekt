@@ -3,10 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         xmlns:local="clr-namespace:WalletProjekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MyWallet" Height="700" Width="1250" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Cursor="Arrow" Background="#FFCCD7FF">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Width="1250" Height="50" Background="#FFF03030">
+            
+        </Grid>
     </Grid>
 </Window>
