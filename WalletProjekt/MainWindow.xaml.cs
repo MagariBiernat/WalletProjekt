@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WalletProjekt.ViewModels;
+using WalletProjekt.Views;
 
 namespace WalletProjekt
 {
@@ -23,6 +25,22 @@ namespace WalletProjekt
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new LoginModel();
         }
+        
+        private void Login_Header_App_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+        private void ButtonPower_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void MinimalizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
     }
 }
