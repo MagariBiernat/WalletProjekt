@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WalletProjekt"
         xmlns:views="clr-namespace:WalletProjekt.Views"
         xmlns:viewmodels="clr-namespace:WalletProjekt.ViewModels"
@@ -44,16 +44,17 @@
             </Grid.Effect>
 
             <!-- A horizontal stackpanel that contains minimalize, shutdown buttons.-->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="50">
 
                 <!--Minimalize app button-->
-                <Button x:Name="MinimalizeButton" Click="MinimalizeButton_Click" Width="46" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Margin="0,0,0,6">
-                    <materialDesign:PackIcon Kind="HorizontalLine" Height="42" Width="48"/>
+                <Button x:Name="MinimalizeButton" Click="MinimalizeButton_Click" Height="50" Width="50" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Margin="0,0,0,0">
+                    <materialDesign:PackIcon Kind="HorizontalLine" Height="35" Width="30"/>
                 </Button>
 
                 <!-- Button shutting the app off-->
-                <Button x:Name="ButtonPower" Width="49" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonPower_Click" Margin="0,0,0,6">
-                    <materialDesign:PackIcon Kind="Power" Height="42" Width="48"/>
+                <Button x:Name="ButtonPower" Width="60"    
+                       Height="50" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="ButtonPower_Click" Margin="0,0,0,0">
+                    <materialDesign:PackIcon Kind="Power" Height="35" Width="30"/>
                 </Button>
             </StackPanel>
 

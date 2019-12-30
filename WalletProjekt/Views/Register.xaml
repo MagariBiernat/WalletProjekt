@@ -6,10 +6,25 @@
              xmlns:local="clr-namespace:WalletProjekt.Views"
              xmlns:views="clr-namespace:WalletProjekt.Views"
              xmlns:viewmodels="clr-namespace:WalletProjekt.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="350" Background="Red"
-             Foreground="White">
+             d:DesignHeight="450" d:DesignWidth="350" >
     <Grid>
-        <TextBlock Text="Hello" />
+        <StackPanel>
+            <Grid Height="40" Width="100" HorizontalAlignment="Center">
+                <TextBlock FontSize="28" Text="Sign Up"/>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBox materialDesign:HintAssist.Hint="First Name" Width="150" />
+                <Grid Width="50">
+                    <!--Empty space... cause why not-->
+                </Grid>
+                <TextBox Text="" materialDesign:HintAssist.Hint="Last Name" Width="150" />
+            </StackPanel>
+            <TextBox materialDesign:HintAssist.Hint="E-mail"/>
+            <PasswordBox materialDesign:HintAssist.Hint="Password" />
+            <PasswordBox materialDesign:HintAssist.Hint="Repeat Your password" />
+        </StackPanel>
     </Grid>
 </UserControl>
