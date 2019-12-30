@@ -25,7 +25,7 @@ namespace WalletProjekt
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new LoginModel();
+            LoginRegisterView.DataContext = new LoginModel();
         }
         
         private void Login_Header_App_MouseDown(object sender, MouseButtonEventArgs e)

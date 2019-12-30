@@ -21,7 +21,7 @@
             <Button x:Name="LoginButton" Margin="0 0 0 20" Content="Login"/>
             <!-- jakas przerwa?-->
             <TextBlock Text="Do not have an account yet?"/>
-            <Button x:Name="RegisterNewAccountButton" Content="Sign Up"/>
+            <Button x:Name="RegisterNewAccountButton" Content="Sign Up" Click="RegisterNewAccountButton_Click"/>
 
         </StackPanel>
     </Grid>

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WalletProjekt.ViewModels;
+using WalletProjekt.Views;
 
 namespace WalletProjekt.Views
 {
@@ -23,6 +25,11 @@ namespace WalletProjekt.Views
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void RegisterNewAccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)App.Current.MainWindow).LoginRegisterView.DataContext = new RegisterModel();
         }
     }
 }
