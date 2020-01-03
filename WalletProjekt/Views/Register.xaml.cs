@@ -24,5 +24,10 @@ namespace WalletProjekt.Views
         {
             InitializeComponent();
         }
+
+        private void PizzaCheckBoxRegistrationForm_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Dayuum mate, You just won a free pizza ");
+        }
     }
 }

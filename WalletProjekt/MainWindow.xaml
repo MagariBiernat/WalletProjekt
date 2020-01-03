@@ -24,7 +24,9 @@
     </Window.Resources>
 
     <!-- A first window containing login panel / registration panel-->
+
     <Grid Background="#B1FFFFFF" OpacityMask="#FF2D49FB">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -75,10 +77,10 @@
                 <Border.Effect>
                     <DropShadowEffect Color="#FF1F2CB4" Direction="344" Opacity="0.35" RenderingBias="Quality" ShadowDepth="8"/>
                 </Border.Effect>
-                <Grid  HorizontalAlignment="Center" Width="350" Height="450" Background="Transparent" >
+                <Grid x:Name="CenterView" HorizontalAlignment="Center" Width="350" Height="450" Background="Transparent" >
                     <ContentControl x:Name="LoginRegisterView" Content="{Binding}" />
                 </Grid>
-       
+
 
             </Border>
 

@@ -8,23 +8,29 @@
              xmlns:viewmodels="clr-namespace:WalletProjekt.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="350" >
+             d:DesignHeight="450" d:DesignWidth="600" Foreground="Black">
     <Grid>
-        <StackPanel>
-            <Grid Height="40" Width="100" HorizontalAlignment="Center">
-                <TextBlock FontSize="28" Text="Sign Up"/>
-            </Grid>
+        <Grid Height="400" Width="550">
+            <StackPanel>
+                
+                <TextBlock FontSize="28" Text="Sign Up" FontWeight="Bold" Margin="5 0 0 20" />
 
-            <StackPanel Orientation="Horizontal">
-                <TextBox materialDesign:HintAssist.Hint="First Name" Width="150" />
-                <Grid Width="50">
-                    <!--Empty space... cause why not-->
-                </Grid>
-                <TextBox Text="" materialDesign:HintAssist.Hint="Last Name" Width="150" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBox materialDesign:HintAssist.Hint="First Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5 50 5" Width="250" />
+
+                    <TextBox Text="" materialDesign:HintAssist.Hint="Last Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Width="250"/>
+                </StackPanel>
+                
+                
+                <TextBox materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
+                
+                <PasswordBox materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
+                
+                <PasswordBox materialDesign:HintAssist.Hint="Confirm Your Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"  Margin="0 5"/>
+                <CheckBox IsThreeState="False" IsChecked="False" Content="I agree to the terms of service" Margin="0 5" />
+                <CheckBox x:Name="PizzaCheckBoxRegistrationForm" IsThreeState="False" IsChecked="False" Content="Free Pizza? Check if yes!" Margin="0 5" Checked="PizzaCheckBoxRegistrationForm_Checked"/>
+                <Button Content="Register" Margin="0 5" />
             </StackPanel>
-            <TextBox materialDesign:HintAssist.Hint="E-mail"/>
-            <PasswordBox materialDesign:HintAssist.Hint="Password" />
-            <PasswordBox materialDesign:HintAssist.Hint="Repeat Your password" />
-        </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>
