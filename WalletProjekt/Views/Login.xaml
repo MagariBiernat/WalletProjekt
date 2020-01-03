@@ -4,25 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WalletProjekt.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="350">
+             d:DesignHeight="450" d:DesignWidth="350" Foreground="Black" >
     <Grid Background="Transparent">
-        <StackPanel>
-            <Grid Height="80" Width="150" HorizontalAlignment="Center">
-                <!--<Grid.Background>
-                   <ImageBrush ImageSource="Images/logo.png"/>
-                </Grid.Background>-->
+        <Grid Height="400" Width="300">
+            <StackPanel>
 
-            </Grid>
-            <TextBlock Text="E-mail" />
-            <TextBox />
-            <TextBlock Text="Password" />
-            <PasswordBox />
-            <Button x:Name="LoginButton" Margin="0 0 0 20" Content="Login"/>
-            <!-- jakas przerwa?-->
-            <TextBlock Text="Do not have an account yet?"/>
-            <Button x:Name="RegisterNewAccountButton" Content="Sign Up" Click="RegisterNewAccountButton_Click"/>
+                <TextBlock FontSize="28" Text="Login">
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="10"
+                              Opacity=".4"
+                              ShadowDepth="2" />
+                    </TextBlock.Effect>
+                </TextBlock>
 
-        </StackPanel>
+                <TextBox materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
+
+                <PasswordBox materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
+
+                <Button x:Name="LoginButton" Margin="0 0 0 20" Content="Login"/>
+
+                <TextBlock FontSize="13" TextAlignment="Center" Text="Do not have an account yet?"/>
+
+                <Button x:Name="RegisterNewAccountButton" Content="Sign Up" Click="RegisterNewAccountButton_Click"/>
+
+            </StackPanel>
+        </Grid>
+        
     </Grid>
 </UserControl>

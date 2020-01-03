@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WalletProjekt.ViewModels;
+using WalletProjekt.Views;
 
 namespace WalletProjekt.Views
 {
@@ -28,6 +30,12 @@ namespace WalletProjekt.Views
         private void PizzaCheckBoxRegistrationForm_Checked(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Dayuum mate, You just won a free pizza ");
+        }
+
+        private void BackFromRegistrationForm_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)App.Current.MainWindow).CenterView.Width = 350;
+            ((MainWindow)App.Current.MainWindow).LoginRegisterView.DataContext = new LoginModel();
         }
     }
 }

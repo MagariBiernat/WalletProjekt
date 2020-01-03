@@ -8,12 +8,32 @@
              xmlns:viewmodels="clr-namespace:WalletProjekt.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="600" Foreground="Black">
+             d:DesignHeight="450" d:DesignWidth="500" Foreground="Black">
     <Grid>
-        <Grid Height="400" Width="550">
+        <Grid Height="400" Width="450">
             <StackPanel>
+
+                <Grid Width="450" >
+                    <TextBlock FontSize="28" Text="Sign Up" FontWeight="Bold" Margin="25 0 0 0" HorizontalAlignment="Left" >
+                        <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="15"
+                              Opacity=".4"
+                              ShadowDepth="2" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    
+                    <!--Return to login form--> 
+                    
+                    <Button x:Name="BackFromRegistrationForm" HorizontalAlignment="Right" Content="Go back" Click="BackFromRegistrationForm_Click" >
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="15"
+                              Opacity=".4"
+                              ShadowDepth="3" />
+                        </Button.Effect>
+                    </Button>
+
+                </Grid>
                 
-                <TextBlock FontSize="28" Text="Sign Up" FontWeight="Bold" Margin="5 0 0 20" />
 
                 <StackPanel Orientation="Horizontal">
                     <TextBox materialDesign:HintAssist.Hint="First Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5 50 5" Width="250" />
@@ -29,7 +49,13 @@
                 <PasswordBox materialDesign:HintAssist.Hint="Confirm Your Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"  Margin="0 5"/>
                 <CheckBox IsThreeState="False" IsChecked="False" Content="I agree to the terms of service" Margin="0 5" />
                 <CheckBox x:Name="PizzaCheckBoxRegistrationForm" IsThreeState="False" IsChecked="False" Content="Free Pizza? Check if yes!" Margin="0 5" Checked="PizzaCheckBoxRegistrationForm_Checked"/>
-                <Button Content="Register" Margin="0 5" />
+                <Button Content="Register" Margin="0 5" >
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="15"
+                              Opacity=".4"
+                              ShadowDepth="3" />
+                    </Button.Effect>
+                </Button>
             </StackPanel>
         </Grid>
     </Grid>

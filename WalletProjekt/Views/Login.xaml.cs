@@ -29,7 +29,7 @@ namespace WalletProjekt.Views
 
         private void RegisterNewAccountButton_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)App.Current.MainWindow).CenterView.Width = 600;
+            ((MainWindow)App.Current.MainWindow).CenterView.Width = 500;
             ((MainWindow)App.Current.MainWindow).LoginRegisterView.DataContext = new RegisterModel();
         }
     }

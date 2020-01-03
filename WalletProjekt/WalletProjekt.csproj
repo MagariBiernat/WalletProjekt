@@ -143,6 +143,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Resource Include="Images\undraw_Savings_dwkw.png" />
+    <Resource Include="Images\undraw_wallet_aym5.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logo.png" />
