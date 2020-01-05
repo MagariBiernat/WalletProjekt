@@ -25,7 +25,7 @@ namespace WalletProjekt
         public MainWindow()
         {
             InitializeComponent();
-            LoginRegisterView.DataContext = new LoginModel();
+            frame.NavigationService.Navigate(new LoginPage());
         }
         
         private void Login_Header_App_MouseDown(object sender, MouseButtonEventArgs e)
@@ -41,6 +41,7 @@ namespace WalletProjekt
         {
             WindowState = WindowState.Minimized;
         }
+        public void LoginSuccesGoMainMenu() => frame.NavigationService.Navigate(new MainMenu());
 
     }
 }

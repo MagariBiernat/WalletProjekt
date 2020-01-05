@@ -34,8 +34,14 @@ namespace WalletProjekt.Views
 
         private void BackFromRegistrationForm_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)App.Current.MainWindow).CenterView.Width = 350;
-            ((MainWindow)App.Current.MainWindow).LoginRegisterView.DataContext = new LoginModel();
+            var parent = VisualTreeHelper.GetParent(this);
+            while (!(parent is Page))
+            {
+                parent = VisualTreeHelper.GetParent(parent);
+            }
+            (parent as LoginPage).CenterView.Width = 350;
+            (parent as LoginPage).LoginRegisterViewLogin();
+            
         }
     }
 }

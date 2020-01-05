@@ -29,8 +29,22 @@ namespace WalletProjekt.Views
 
         private void RegisterNewAccountButton_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)App.Current.MainWindow).CenterView.Width = 500;
-            ((MainWindow)App.Current.MainWindow).LoginRegisterView.DataContext = new RegisterModel();
+            var parent = VisualTreeHelper.GetParent(this);
+            while (!(parent is Page))
+            {
+                parent = VisualTreeHelper.GetParent(parent);
+            }
+            (parent as LoginPage).CenterView.Width = 500;
+            (parent as LoginPage).LoginRegisterViewRegister();
+            
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO : Login A user, check db etc
+
+
+            ((MainWindow)App.Current.MainWindow).LoginSuccesGoMainMenu();
         }
     }
 }

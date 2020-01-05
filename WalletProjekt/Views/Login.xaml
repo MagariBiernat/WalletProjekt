@@ -23,7 +23,7 @@
 
                 <PasswordBox materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
 
-                <Button x:Name="LoginButton" Margin="0 0 0 20" Content="Login"/>
+                <Button x:Name="LoginButton" Margin="0 0 0 20" Content="Login" Click="LoginButton_Click"/>
 
                 <TextBlock FontSize="13" TextAlignment="Center" Text="Do not have an account yet?"/>
 

@@ -36,9 +36,9 @@
                 
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBox materialDesign:HintAssist.Hint="First Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5 50 5" Width="250" />
+                    <TextBox materialDesign:HintAssist.Hint="First Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5 50 5" Width="200" />
 
-                    <TextBox Text="" materialDesign:HintAssist.Hint="Last Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Width="250"/>
+                    <TextBox Text="" materialDesign:HintAssist.Hint="Last Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Width="200"/>
                 </StackPanel>
                 
                 
