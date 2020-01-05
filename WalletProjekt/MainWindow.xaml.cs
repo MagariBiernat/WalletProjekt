@@ -27,20 +27,10 @@ namespace WalletProjekt
             InitializeComponent();
             frame.NavigationService.Navigate(new LoginPage());
         }
-        
-        private void Login_Header_App_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
-        private void ButtonPower_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
 
-        private void MinimalizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
+        private void TopBar_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
+        private void ButtonPower_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
+        private void MinimalizeButton_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
         public void LoginSuccesGoMainMenu() => frame.NavigationService.Navigate(new MainMenu());
 
     }

@@ -12,22 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WalletProjekt.ViewModels;
-using WalletProjekt.Views;
 
-namespace WalletProjekt
+namespace WalletProjekt.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainMenu.xaml
+    /// Logika interakcji dla klasy Dashboard.xaml
     /// </summary>
-    public partial class MainMenu : Page
+    public partial class Dashboard : UserControl
     {
-        public MainMenu()
+        public Dashboard()
         {
-            InitializeComponent();
-            DashboardModel Dashboard = new DashboardModel();
-            MainContent.DataContext = Dashboard;
             
+            InitializeComponent();
+
+            
+            //var parent = VisualTreeHelper.GetParent(this);
+            //while (!(parent is Page))
+            //{
+            //    parent = VisualTreeHelper.GetParent(parent);
+            //}
+            //(parent as MainMenu)
         }
     }
+   
 }

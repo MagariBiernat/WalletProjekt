@@ -10,26 +10,34 @@
         mc:Ignorable="d" Height="660" Width="1250" Cursor="Arrow" Background="#FFCCD7FF"
         FontFamily="Microsoft Sans Serif">
 
+    <Page.Resources>
+        <DataTemplate x:Name="DashboardTemplate" DataType="{x:Type viewmodels:DashboardModel}">
+            <views:Dashboard DataContext="{Binding LoginRegisterView}"/>
+        </DataTemplate>
+    </Page.Resources>
     <!--Main Menu here--> 
     <Grid x:Name="ContextView" Background="#FF924DAC">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition />
         </Grid.RowDefinitions>
+        
         <Grid x:Name="MenuBar" Grid.Row="0">
             <StackPanel Orientation="Horizontal">
-                <Button Background="BlueViolet" Content="Dashboard">
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="BorderThickness" Value="6"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
+                
+                <Button Background="BlueViolet" Content="Dashboard"/>
+                
                 <Button Background="BlueViolet" Content="Posts"/>
+                
                 <Button Background="BlueViolet" Content="Statistics"/>
+                
                 <Button Background="BlueViolet" Content="Profile"/>
                 
             </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <ContentControl x:Name="MainContent" Content="{Binding}" />
         </Grid>
     </Grid>
 </Page>
