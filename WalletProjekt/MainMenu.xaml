@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:WalletProjekt"
         xmlns:views="clr-namespace:WalletProjekt.Views"
         xmlns:viewmodels="clr-namespace:WalletProjekt.ViewModels"
-        mc:Ignorable="d" Height="660" Width="500" Cursor="Arrow" Background="#FFCCD7FF"
+        mc:Ignorable="d" Height="700" Width="400" Cursor="Arrow" 
         FontFamily="Microsoft Sans Serif">
 
     <Page.Resources>
@@ -16,7 +16,10 @@
         </DataTemplate>
     </Page.Resources>
     <!--Main Menu here--> 
-    <Grid x:Name="ContextView" Background="#FF924DAC">
+    <Grid x:Name="ContextView" >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/bgproo.png"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition />
