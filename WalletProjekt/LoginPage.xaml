@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:WalletProjekt"
         xmlns:views="clr-namespace:WalletProjekt.Views"
         xmlns:viewmodels="clr-namespace:WalletProjekt.ViewModels"
-        mc:Ignorable="d" Height="660" Width="500" Cursor="Arrow" Background="#FFCCD7FF"
+        mc:Ignorable="d" Height="660" Width="1250" Cursor="Arrow" Background="#FFCCD7FF"
         FontFamily="Microsoft Sans Serif">
 
     <Page.Resources>
@@ -27,7 +27,7 @@
     <Grid x:Name="ContextView" Background="#FF924DAC">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-     
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <!--Left column with Login/Register panel and text at the bottom-->
@@ -75,6 +75,67 @@
         </Grid>
 
         <!--Right column-->
-       
+        <Grid Grid.Column="1">
+
+
+            <!--Right column's image-->
+            <Border
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Height="270"
+                BorderBrush="Purple"
+                CornerRadius="45"
+                Width="460"
+                BorderThickness="2"
+                Margin="-120 -10 0 0"
+                >
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="15"
+                              Opacity=".4"
+                              ShadowDepth="3" />
+                </Border.Effect>
+                <Border.Background>
+                    <ImageBrush ImageSource="Images/undraw_wallet_aym5.png"/>
+                </Border.Background>
+            </Border>
+            <Border
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Height="150"
+                BorderBrush="Purple"
+                CornerRadius="75"
+                Width="230"
+                Margin="0 0 25 25"
+                BorderThickness="3"
+                >
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="15"
+                              Opacity=".4"
+                              ShadowDepth="3" />
+                </Border.Effect>
+                <Border.Background>
+                    <ImageBrush ImageSource="Images/undraw_Savings_dwkw.png"/>
+                </Border.Background>
+            </Border>
+            <Border
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Height="150"
+                BorderBrush="Purple"
+                Width="220"
+                Margin="30 30 0 0"
+                >
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="15"
+                              Opacity=".4"
+                              ShadowDepth="3" />
+                </Border.Effect>
+                <Border.Background>
+                    <ImageBrush ImageSource="Images/logo.png" Stretch="UniformToFill"/>
+                </Border.Background>
+            </Border>
+
+
+        </Grid>
     </Grid>
 </Page>

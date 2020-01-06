@@ -8,7 +8,7 @@
         xmlns:views="clr-namespace:WalletProjekt.Views"
         xmlns:viewmodels="clr-namespace:WalletProjekt.ViewModels"
         mc:Ignorable="d"
-        Title="MyWallet" Height="700" Width="500" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Cursor="Arrow" Background="#FFCCD7FF"
+        Title="MyWallet" Height="700" Width="1250" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Cursor="Arrow" Background="#FFCCD7FF"
         FontFamily="Microsoft Sans Serif">
     
     
