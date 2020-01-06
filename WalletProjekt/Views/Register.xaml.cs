@@ -14,6 +14,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WalletProjekt.ViewModels;
 using WalletProjekt.Views;
+using WalletProjekt.Classes;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace WalletProjekt.Views
 {
@@ -22,6 +25,7 @@ namespace WalletProjekt.Views
     /// </summary>
     public partial class Register : UserControl
     {
+        private string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
         public Register()
         {
             InitializeComponent();
@@ -41,7 +45,101 @@ namespace WalletProjekt.Views
             }
             (parent as LoginPage).CenterView.Width = 350;
             (parent as LoginPage).LoginRegisterViewLogin();
-            
+
+        }
+        private void RegisterButtonFinish_Click(object sender, RoutedEventArgs e)
+        {
+            // register 
+            RegisterUser();
+            // Account new_user = new Account() { _firstName = , _lastName = }
+        }
+        private void RegisterUser()
+        {
+            if (CheckIfFormCorrectAndNotEmpty())
+            {
+                if (PasswordsAreEqual())
+                {
+                    if(TermsAgreed())
+                    {
+                        if (CheckIfEmailExistsInDatabase(EmailVar.Text))
+                        {
+                            // keep going
+                            MessageBox.Show("Keep going.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("An account with this email already exists.");
+                            // this email already exists in database
+                        }
+                    }
+                    else { MessageBox.Show("Please agree to our terms."); } 
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Passwords are not equal!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Some of fields are empty.");
+            }
+        }
+        private bool CheckIfEmailExistsInDatabase(string email)
+        {
+            SqlCommand command = new SqlCommand();
+            using(SqlConnection myCon = new SqlConnection(conn))
+            using(myCon)
+            {
+                command.CommandText = "SELECT * FROM users WHERE email = @email";
+                command.Parameters.AddWithValue("@email", email);
+                using(command)
+                {
+                    myCon.Open();
+                    command.Connection = myCon;
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if(reader.HasRows)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+
+        }
+
+        private bool TermsAgreed()
+        {
+            if (TermsCheckBox.IsChecked == true)
+                return true;
+            else
+                return false;
+        }
+        private bool CheckIfFormCorrectAndNotEmpty()
+        {
+            if (string.IsNullOrEmpty(FirstNameVar.Text)
+                || string.IsNullOrEmpty(LastNameVar.Text)
+                || string.IsNullOrEmpty(EmailVar.Text)
+                || string.IsNullOrEmpty(FirstPassword.Password)
+                || string.IsNullOrEmpty(SecondPassword.Password))
+            {
+                return false;
+                
+            }
+            return true;
+        }
+        private bool PasswordsAreEqual()
+        {
+            if (FirstPassword.Password != SecondPassword.Password)
+            {
+                return false;
+            }
+            else
+                return true;
         }
     }
 }

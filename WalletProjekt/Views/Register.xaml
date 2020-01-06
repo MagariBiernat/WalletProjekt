@@ -36,20 +36,20 @@
                 
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBox materialDesign:HintAssist.Hint="First Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5 50 5" Width="200" />
+                    <TextBox x:Name="FirstNameVar" materialDesign:HintAssist.Hint="First Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5 50 5" Width="200" />
 
-                    <TextBox Text="" materialDesign:HintAssist.Hint="Last Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Width="200"/>
+                    <TextBox x:Name="LastNameVar" Text="" materialDesign:HintAssist.Hint="Last Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Width="200"/>
                 </StackPanel>
                 
                 
-                <TextBox materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
+                <TextBox x:Name="EmailVar" materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
                 
-                <PasswordBox materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
+                <PasswordBox x:Name="FirstPassword" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
                 
-                <PasswordBox materialDesign:HintAssist.Hint="Confirm Your Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"  Margin="0 5"/>
-                <CheckBox IsThreeState="False" IsChecked="False" Content="I agree to the terms of service" Margin="0 5" />
+                <PasswordBox x:Name="SecondPassword" materialDesign:HintAssist.Hint="Confirm Your Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"  Margin="0 5"/>
+                <CheckBox x:Name="TermsCheckBox" IsThreeState="False" IsChecked="False" Content="I agree to the terms of service" Margin="0 5" />
                 <CheckBox x:Name="PizzaCheckBoxRegistrationForm" IsThreeState="False" IsChecked="False" Content="Free Pizza? Check if yes!" Margin="0 5" Checked="PizzaCheckBoxRegistrationForm_Checked"/>
-                <Button Content="Register" Margin="0 5" >
+                <Button x:Name="RegisterButtonFinish" Content="Register" Margin="0 5" Click="RegisterButtonFinish_Click" >
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="15"
                               Opacity=".4"
