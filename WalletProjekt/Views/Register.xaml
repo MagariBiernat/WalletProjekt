@@ -8,13 +8,13 @@
              xmlns:viewmodels="clr-namespace:WalletProjekt.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="500" Foreground="Black">
-    <Grid>
-        <Grid Height="400" Width="450">
+             d:DesignHeight="450" d:DesignWidth="350" Foreground="Black">
+    <Grid Background="white">
+        <Grid Height="400" Width="300">
             <StackPanel>
 
-                <Grid Width="450" >
-                    <TextBlock FontSize="28" Text="Sign Up" FontWeight="Bold" Margin="25 0 0 0" HorizontalAlignment="Left" >
+                <Grid Width="300" >
+                    <TextBlock FontSize="28" Text="Sign Up" FontWeight="Bold" Margin="0,-2,0,3" HorizontalAlignment="Left" >
                         <TextBlock.Effect>
                             <DropShadowEffect BlurRadius="15"
                               Opacity=".4"
@@ -28,6 +28,7 @@
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="15"
                               Opacity=".4"
+                             
                               ShadowDepth="3" />
                         </Button.Effect>
                     </Button>
@@ -35,13 +36,11 @@
                 </Grid>
                 
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="FirstNameVar" materialDesign:HintAssist.Hint="First Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5 50 5" Width="200" />
+                
+                <TextBox x:Name="FirstNameVar" materialDesign:HintAssist.Hint="First Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5 "/>
 
-                    <TextBox x:Name="LastNameVar" Text="" materialDesign:HintAssist.Hint="Last Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Width="200"/>
-                </StackPanel>
-                
-                
+                <TextBox x:Name="LastNameVar" Text="" materialDesign:HintAssist.Hint="Last Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
+
                 <TextBox x:Name="EmailVar" materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
                 
                 <PasswordBox x:Name="FirstPassword" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
