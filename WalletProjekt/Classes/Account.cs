@@ -19,22 +19,23 @@ namespace WalletProjekt.Classes
         public bool Added = false;
         public int AddUserToDatabase()
         {
-            
+
 
             SqlCommand command = new SqlCommand();
             using (SqlConnection myCon = new SqlConnection(conn))
             using (myCon)
             {
-                string dateCreated = _dateCreated.ToString("yyyy/MM/dd H:mm:ss");
-                command.CommandText = "INSERT INTO users (email,password,date_created,firstName,lastName) " +
-                    "VALUES ('@email','@password','@date_created','@firstName','@lastName');";
-                command.Parameters.AddWithValue("@email",_email);
-                command.Parameters.AddWithValue("@password",_password);
-               // command.Parameters.AddWithValue("@date_created",dateCreated);
-                command.Parameters.Add("@date_created", System.Data.SqlDbType.DateTime).Value = dateCreated;
-                command.Parameters.AddWithValue("@firstName",_firstName);
-                command.Parameters.AddWithValue("@lastName",_lastName);
-                using(command)
+                string dateCreated = DateTime.Now.ToString("yyyy-MM-dd");
+                command.CommandText = "INSERT INTO Users (email,password,date_created,firstName,lastName) " +
+                    "VALUES ('@email','@password',@date_created, 'firstName','@lastName');";
+                command.Parameters.AddWithValue("@email", _email);
+                command.Parameters.AddWithValue("@password", _password);
+                // command.Parameters.AddWithValue("@date_created",dateCreated);
+                command.Parameters.Add("@date_created", System.Data.SqlDbType.Date
+                    ).Value = dateCreated;
+                command.Parameters.AddWithValue("@firstName", _firstName);
+                command.Parameters.AddWithValue("@lastName", _lastName);
+                using (command)
                 {
                     myCon.Open();
                     command.Connection = myCon;
@@ -44,14 +45,41 @@ namespace WalletProjekt.Classes
                     if (ExecuteReturnValue >= 0)
                     {
                         Added = true;
+                        CreatePostsDatabase();
                         return 1;
                     }
-                        
+
                     else
                         return 0;
-                    
+
                 }
 
+            }
+        }
+        public void CreatePostsDatabase()
+        {
+            string userName = _email + "PostsDatabase";
+            SqlCommand comm = new SqlCommand();
+            using (SqlConnection myCon = new SqlConnection(conn))
+            {
+                using (myCon)
+                {
+                
+                comm.CommandText = "CREATE TABLE [dbo].["+userName+"]" +
+                                    "( "+
+                                    "[Id] INT NOT NULL PRIMARY KEY, "+
+                                     "   [amount] INT NOT NULL, "+
+                                      "  [category] NVARCHAR(50) NOT"+ "NULL,"+
+                  "                      [datetime] DATETIME2 NOT"+ "NULL," + 
+                         "               [desc] NVARCHAR(MAX) NULL"+
+                                   " )";    
+                }
+                using(comm)
+                {
+                    myCon.Open();
+                    comm.Connection = myCon;
+                    comm.ExecuteNonQuery();
+                }
             }
         }
     }
