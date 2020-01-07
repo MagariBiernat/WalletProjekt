@@ -25,17 +25,20 @@ namespace WalletProjekt.Classes
             using (SqlConnection myCon = new SqlConnection(conn))
             using (myCon)
             {
+                string dateCreated = _dateCreated.ToString("yyyy/MM/dd H:mm:ss");
                 command.CommandText = "INSERT INTO users (email,password,date_created,firstName,lastName) " +
-                    "VALUES ('@email',@password','@date_created','@firstName','@lastName');";
+                    "VALUES ('@email','@password','@date_created','@firstName','@lastName');";
                 command.Parameters.AddWithValue("@email",_email);
                 command.Parameters.AddWithValue("@password",_password);
-                command.Parameters.AddWithValue("@date_created",_dateCreated.ToString("yyyy/MM/dd H:mm:ss"));
+               // command.Parameters.AddWithValue("@date_created",dateCreated);
+                command.Parameters.Add("@date_created", System.Data.SqlDbType.DateTime).Value = dateCreated;
                 command.Parameters.AddWithValue("@firstName",_firstName);
                 command.Parameters.AddWithValue("@lastName",_lastName);
                 using(command)
                 {
                     myCon.Open();
                     command.Connection = myCon;
+
                     int ExecuteReturnValue = command.ExecuteNonQuery();
 
                     if (ExecuteReturnValue >= 0)
