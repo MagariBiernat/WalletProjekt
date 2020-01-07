@@ -49,7 +49,7 @@ namespace WalletProjekt.Views
         }
         private void RegisterButtonFinish_Click(object sender, RoutedEventArgs e)
         {
-            // register 
+            
             RegisterUser();
             // Account new_user = new Account() { _firstName = , _lastName = }
         }
@@ -63,13 +63,35 @@ namespace WalletProjekt.Views
                     {
                         if (CheckIfEmailExistsInDatabase(EmailVar.Text))
                         {
-                            // keep going
-                            MessageBox.Show("Keep going.");
+                            Account newUser = new Account()
+                            {
+                                _email = EmailVar.Text,
+                                _password = FirstPassword.Password,
+                                _firstName = FirstNameVar.Text,
+                                _lastName = LastNameVar.Text
+                            };
+                            int result = newUser.AddUserToDatabase();
+                            if (result >= 0 )
+                            {
+                                MessageBox.Show("User has been successfully created. Please log in now.");
+
+                                var parent = VisualTreeHelper.GetParent(this);
+                                while (!(parent is Page))
+                                {
+                                    parent = VisualTreeHelper.GetParent(parent);
+                                }
+                                (parent as LoginPage).LoginRegisterViewLogin();
+                            }
+                            else
+                            {
+                                MessageBox.Show("An error has occured while creating a new user. ");
+                            }
+
                         }
                         else
                         {
                             MessageBox.Show("An account with this email already exists.");
-                            // this email already exists in database
+                            
                         }
                     }
                     else { MessageBox.Show("Please agree to our terms."); } 
