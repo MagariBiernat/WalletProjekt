@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WalletProjekt.ViewModels;
 using WalletProjekt.Views;
+using WalletProjekt.Classes;
 
 namespace WalletProjekt
 {
@@ -32,6 +33,11 @@ namespace WalletProjekt
         private void ButtonPower_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
         private void MinimalizeButton_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
         public void LoginSuccesGoMainMenu() => frame.NavigationService.Navigate(new MainMenu());
+        public Account ReceiveUserData(Account User)
+        {
+            Account obj = User;
+            return obj;
+        }
 
     }
 }
