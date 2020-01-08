@@ -79,6 +79,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Account.cs" />
+    <Compile Include="Classes\Posts.cs" />
     <Compile Include="Interfaces\IAccount.cs" />
     <Compile Include="Interfaces\IPosts.cs" />
     <Compile Include="LoginPage.xaml.cs">

@@ -8,6 +8,12 @@ namespace WalletProjekt.Interfaces
 {
     interface IPosts
     {
+        int amount { get; set; }
+        string category { get; set; }
+        string type { get; set; }
+        string desc { get; set; }
+        void AddNewPost();
+
         
     }
 }
