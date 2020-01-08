@@ -25,42 +25,30 @@
     <!-- A first window containing login panel / registration panel-->
     <!--"ContextView" is the name of a whole window-->
     <Grid x:Name="ContextView" >
-        <Grid.Background>
-            <ImageBrush ImageSource="/Images/bgproo.png"/>
-        </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-     
-        </Grid.ColumnDefinitions>
+        
 
         <!--Left column with Login/Register panel and text at the bottom-->
-        <Grid  Grid.Column="0" VerticalAlignment="Center" Height="660">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition Height="120"/>
-            </Grid.RowDefinitions>
+        <Grid  VerticalAlignment="Center" Height="680">
+            
 
             <!--A grid containing ContentControl with Login/Register panel-->
             <Border
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                BorderThickness="2"
-                CornerRadius="15"
-                BorderBrush="Purple"
-                Padding="2"
-                Background="White"
+                
+                
                 >
                 <Border.Effect>
-                    <DropShadowEffect Color="#FF1F2CB4" Direction="344" Opacity="0.35" RenderingBias="Quality" ShadowDepth="8"/>
+                    <DropShadowEffect Color="#FF1F2CB4" Opacity="0.15" RenderingBias="Quality" ShadowDepth="8"/>
                 </Border.Effect>
-                <Grid x:Name="CenterView"  HorizontalAlignment="Center" Width="350" Height="450" Background="Transparent" >
+                <Grid x:Name="CenterView"  HorizontalAlignment="Center" Width="400" Height="660" Background="Transparent" >
                     <ContentControl x:Name="LoginRegisterView" Content="{Binding}" />
                 </Grid>
             </Border>
             
         </Grid>
 
-        <!--Right column-->
+      
        
     </Grid>
 </Page>
