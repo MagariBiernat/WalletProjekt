@@ -15,32 +15,53 @@
             <views:Dashboard DataContext="{Binding LoginRegisterView}"/>
         </DataTemplate>
     </Page.Resources>
-    <!--Main Menu here--> 
-    <Grid x:Name="ContextView" >
-        <Grid.Background>
-            <ImageBrush ImageSource="/Images/bgproo.png"/>
-        </Grid.Background>
+    <!--Main Menu here-->
+    <Grid x:Name="ContextView" Height="700" Width="400" Margin="0 20 0 0" >
+        
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition />
+            <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        
-        <Grid x:Name="MenuBar" Grid.Row="0">
-            <StackPanel Orientation="Horizontal">
+
+        <Grid  Grid.Row="0" Height="400">
+
+            <TextBlock FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Text="3.519 zł" Margin="0 35 0 0">
                 
-                <Button Background="BlueViolet" Content="Dashboard"/>
-                
-                <Button Background="BlueViolet" Content="Posts"/>
-                
-                <Button Background="BlueViolet" Content="Statistics"/>
-                
-                <Button Background="BlueViolet" Content="Profile"/>
-                
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 0">
+
+                <Border CornerRadius="10" Background="white" Width="160" Height="50" Margin="0 0 20 0">
+                    <Button x:Name="Plus"  Background="Transparent" BorderThickness="0" Foreground="Black" Content="Login"  />
+                </Border>
+                <Border CornerRadius="10" Background="white" Width="160" Height="50" >
+                    <Button x:Name="Minus" Background="Transparent" BorderThickness="0" Foreground="Black" Content="Sign Up" />
+                </Border>
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Height="240">
             <ContentControl x:Name="MainContent" Content="{Binding}" />
+        </Grid>
+        <Grid x:Name="MenuBar" Grid.Row="2"  HorizontalAlignment="Center" Height="60">
+            <StackPanel Orientation="Horizontal" Width="400" Height="60">
+                <Button x:Name="Home" Width="100"    
+                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="ButtonHome_Click" >
+                    <materialDesign:PackIcon Kind="Home" Height="30" Width="30"/>
+                </Button>
+                <Button x:Name="Posts" Width="100"    
+                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="ButtonHome_Click" >
+                    <materialDesign:PackIcon Kind="Assignment" Height="30" Width="30"/>
+                </Button>
+                <Button x:Name="Statistics" Width="100"    
+                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="ButtonHome_Click" >
+                    <materialDesign:PackIcon Kind="Equalizer" Height="30" Width="30"/>
+                </Button>
+                <Button x:Name="Profile" Width="100"    
+                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="ButtonHome_Click" >
+                    <materialDesign:PackIcon Kind="PermIdentity" Height="30" Width="30"/>
+                </Button>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

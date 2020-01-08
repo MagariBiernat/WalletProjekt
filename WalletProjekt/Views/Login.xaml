@@ -6,28 +6,34 @@
              xmlns:local="clr-namespace:WalletProjekt.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="350" Foreground="Black" >
+             d:DesignHeight="660" d:DesignWidth="400" Foreground="Black" >
     <Grid>
-        <Grid Height="300" Width="300" Margin="26,31,24,69">
+        <Grid Height="660" Width="400" Margin="0,20,0,70">
             <StackPanel>
 
-                <TextBlock FontSize="28" FontWeight="Bold" Foreground="White" Text="Login">
+                <TextBlock FontSize="58" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Text="Login">
                     <TextBlock.Effect>
                         <DropShadowEffect BlurRadius="10"
                               Opacity=".4"
                               ShadowDepth="2" />
                     </TextBlock.Effect>
                 </TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 60 0 20">
 
-                <TextBox x:Name="LoginVar" materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 45"/>
+                    <Border CornerRadius="10" Background="white" Width="160" Height="50" Margin="0 0 20 0">
+                        <Button x:Name="LoginButton"  Background="Transparent" BorderThickness="0" Foreground="Black" Content="Login"  Click="LoginButton_Click" />
+                    </Border>
+                    <Border CornerRadius="10" Background="white" Width="160" Height="50" >
+                        <Button x:Name="RegisterNewAccountButton" Background="Transparent" BorderThickness="0" Foreground="Black" Content="Sign Up" Click="RegisterNewAccountButton_Click" Width="160" Height="50"/>
+                    </Border>
+                 </StackPanel>
 
-                <PasswordBox x:Name="PasswordVar" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
+                <StackPanel Width="300">
+                    <TextBox x:Name="LoginVar" materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 30 0 10" />
+                    <PasswordBox x:Name="PasswordVar" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 10" />
+                </StackPanel>
 
-                <Button x:Name="LoginButton" Margin="0 0 0 5" Content="Login" Click="LoginButton_Click"/>
-                <Button x:Name="RegisterNewAccountButton" Content="Sign Up" Click="RegisterNewAccountButton_Click"/>
-
-
-            <TextBlock FontSize="13" Margin="0 0 0 5" TextAlignment="Center" Text="Do not have an account yet?"/>
+               
 
         
 
