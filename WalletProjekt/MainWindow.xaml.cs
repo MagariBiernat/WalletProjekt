@@ -23,6 +23,7 @@ namespace WalletProjekt
     /// </summary>
     public partial class MainWindow : Window
     {
+        private UserData user;
         public MainWindow()
         {
             InitializeComponent();
@@ -33,10 +34,13 @@ namespace WalletProjekt
         private void ButtonPower_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
         private void MinimalizeButton_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
         public void LoginSuccesGoMainMenu() => frame.NavigationService.Navigate(new MainMenu());
-        public Account ReceiveUserData(Account User)
+        public void ReceiveUserData(UserData User)
         {
-            Account obj = User;
-            return obj;
+            user = User;
+        }
+        public UserData GetUserData()
+        {
+            return user;
         }
 
     }

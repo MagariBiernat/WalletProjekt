@@ -32,7 +32,6 @@ namespace WalletProjekt.Classes
                     "VALUES ('@email','@password',@date_created, 'firstName','@lastName');";
                 command.Parameters.AddWithValue("@email", _email);
                 command.Parameters.AddWithValue("@password", _password);
-                // command.Parameters.AddWithValue("@date_created",dateCreated);
                 command.Parameters.Add("@date_created", System.Data.SqlDbType.Date
                     ).Value = dateCreated;
                 command.Parameters.AddWithValue("@firstName", _firstName);
@@ -43,6 +42,8 @@ namespace WalletProjekt.Classes
                     command.Connection = myCon;
 
                     int ExecuteReturnValue = command.ExecuteNonQuery();
+                    myCon.Close();
+
 
                     if (ExecuteReturnValue >= 0)
                     {
@@ -64,24 +65,20 @@ namespace WalletProjekt.Classes
             string userName = _email + "PostsDatabase";
             SqlCommand comm = new SqlCommand();
             using (SqlConnection myCon = new SqlConnection(conn))
+            using (myCon)
             {
-                using (myCon)
-                {
-                
-                comm.CommandText = "CREATE TABLE [dbo].["+userName+"]" +
-                                    "( "+
-                                    "[Id] INT NOT NULL PRIMARY KEY, "+
-                                     "   [amount] INT NOT NULL, "+
-                                      "  [category] NVARCHAR(50) NOT"+ "NULL,"+
-                  "                      [datetime] DATETIME2 NOT"+ "NULL," + 
-                         "               [desc] NVARCHAR(MAX) NULL"+
-                                   " )";    
-                }
-                using(comm)
+                comm.CommandText = "CREATE TABLE [dbo].[" + userName + "]" +
+                                    "([Id] INT NOT NULL PRIMARY KEY," +
+                                    "[amount] INT NOT NULL," +
+                                    "[category] NVARCHAR(50) NOT NULL," +
+                                    "[datetime] DATETIME2 NOT NULL," +
+                                    "[desc] NVARCHAR(MAX) NULL )";
+                using (comm)
                 {
                     myCon.Open();
                     comm.Connection = myCon;
                     comm.ExecuteNonQuery();
+                    myCon.Close();
                 }
             }
         }

@@ -43,7 +43,7 @@ namespace WalletProjekt.Views
             {
                 parent = VisualTreeHelper.GetParent(parent);
             }
-            (parent as LoginPage).CenterView.Width = 350;
+           // (parent as LoginPage).CenterView.Width = 350;
             (parent as LoginPage).LoginRegisterViewLogin();
 
         }

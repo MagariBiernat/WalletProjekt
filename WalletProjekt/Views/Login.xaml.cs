@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WalletProjekt.ViewModels;
 using WalletProjekt.Views;
+using WalletProjekt.Classes;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
@@ -44,23 +45,63 @@ namespace WalletProjekt.Views
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            // string email = emailVar.Text;
-            // string password = passwordVar.Password;
-            // int CheckIfEmailMatchesPassword = ValidateLogin(email, password);
-            // if(CheckIfEmailMatchesPassword == 1)
-            // {
-            // success login :)
-            // };
+            string email = LoginVar.Text;
+            string password = PasswordVar.Password;
+            int ResultLogin = ValidateLogin(email, password);
+            if(ResultLogin == 1)
+            {
+                MessageBox.Show("Zalogowano pomyslnie");
+                ReceiveAllDataFromDatabase(email);
+              ((MainWindow)App.Current.MainWindow).LoginSuccesGoMainMenu();
+            }
+            else
+            {
+                MessageBox.Show("Incorrect email or password");
+            }
 
-            ((MainWindow)App.Current.MainWindow).LoginSuccesGoMainMenu();
+            // ((MainWindow)App.Current.MainWindow).LoginSuccesGoMainMenu();
         }
+        private void ReceiveAllDataFromDatabase(string email)
+        {
+            string firstName = String.Empty;
+            string lastName = String.Empty;
+            SqlCommand command = new SqlCommand();
+            using(SqlConnection myCon = new SqlConnection(conn))
+            using (myCon)
+            {
+                command.CommandText = "SELECT firstName, lastName from Users where email = @email";
+                command.Parameters.AddWithValue("@email", email);
+                using(command)
+                {
+                    myCon.Open();
+                    command.Connection = myCon;
+                    SqlDataReader reader = command.ExecuteReader();
+                    if(reader.HasRows)
+                    {
+                        while(reader.Read())
+                        {
+                            firstName = reader["firstName"].ToString();
+                            lastName = reader["lastName"].ToString();
+                            UserData user = new UserData()
+                            {
+                                firstName = firstName,
+                                lastName = lastName,
+                                email = email
+                            };
+                            ((MainWindow)App.Current.MainWindow).ReceiveUserData(user);
 
+                        }
+                    }
+                }
+            }
+        }
         private int ValidateLogin(string email, string password)
         {
             SqlCommand command = new SqlCommand();
             using(SqlConnection myCon = new SqlConnection(conn))
             using(myCon)
             {
+                myCon.Open();
                 command.CommandText = "SELECT password FROM users WHERE email = @email";
                 command.Parameters.AddWithValue("@email", email);
                 command.Connection = myCon;
@@ -70,7 +111,7 @@ namespace WalletProjekt.Views
                 {
                     while(reader.Read())
                     {
-                           PasswordFromDatabase = reader["password"].ToString();
+                        PasswordFromDatabase = reader["password"].ToString();
                         break; // the loop goes only once.
                     }
                     
@@ -87,7 +128,7 @@ namespace WalletProjekt.Views
                     }
                     else
                     {
-                        return 2;
+                        return 0;
                     }
                 }
                 return 0;

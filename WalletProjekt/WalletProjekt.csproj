@@ -80,8 +80,10 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Account.cs" />
     <Compile Include="Classes\Posts.cs" />
+    <Compile Include="Classes\UserData.cs" />
     <Compile Include="Interfaces\IAccount.cs" />
     <Compile Include="Interfaces\IPosts.cs" />
+    <Compile Include="Interfaces\IUserData.cs" />
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>

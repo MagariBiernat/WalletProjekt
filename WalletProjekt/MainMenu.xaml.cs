@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WalletProjekt.ViewModels;
 using WalletProjekt.Views;
+using WalletProjekt.Classes;
 
 namespace WalletProjekt
 {
@@ -22,8 +23,10 @@ namespace WalletProjekt
     /// </summary>
     public partial class MainMenu : Page
     {
+        UserData user = ((MainWindow)App.Current.MainWindow).GetUserData();
         public MainMenu()
         {
+            
             InitializeComponent();
             DashboardModel Dashboard = new DashboardModel();
             MainContent.DataContext = Dashboard;
