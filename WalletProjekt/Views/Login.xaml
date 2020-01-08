@@ -7,11 +7,11 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="350" Foreground="Black" >
-    <Grid Background="white">
+    <Grid>
         <Grid Height="300" Width="300" Margin="26,31,24,69">
             <StackPanel>
 
-                <TextBlock FontSize="28" FontWeight="Bold" Text="Login">
+                <TextBlock FontSize="28" FontWeight="Bold" Foreground="White" Text="Login">
                     <TextBlock.Effect>
                         <DropShadowEffect BlurRadius="10"
                               Opacity=".4"
@@ -19,15 +19,17 @@
                     </TextBlock.Effect>
                 </TextBlock>
 
-                <TextBox materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
+                <TextBox x:Name="LoginVar" materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 45"/>
 
-                <PasswordBox materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
+                <PasswordBox x:Name="PasswordVar" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
 
-                <Button x:Name="LoginButton" Margin="0 30 0 5" Content="Login" Click="LoginButton_Click"/>
-
-                <TextBlock FontSize="13" Margin="0 0 0 5" TextAlignment="Center" Text="Do not have an account yet?"/>
-
+                <Button x:Name="LoginButton" Margin="0 0 0 5" Content="Login" Click="LoginButton_Click"/>
                 <Button x:Name="RegisterNewAccountButton" Content="Sign Up" Click="RegisterNewAccountButton_Click"/>
+
+
+            <TextBlock FontSize="13" Margin="0 0 0 5" TextAlignment="Center" Text="Do not have an account yet?"/>
+
+        
 
             </StackPanel>
         </Grid>
