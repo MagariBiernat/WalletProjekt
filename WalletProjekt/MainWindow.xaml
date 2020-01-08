@@ -8,31 +8,33 @@
         xmlns:views="clr-namespace:WalletProjekt.Views"
         xmlns:viewmodels="clr-namespace:WalletProjekt.ViewModels"
         mc:Ignorable="d"
-        Title="MyWallet" Height="700" Width="500" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Cursor="Arrow" Background="#FFCCD7FF"
+        Title="MyWallet" Height="700" Width="400" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Cursor="Arrow"
         FontFamily="Microsoft Sans Serif">
-    
-    
-    <Grid x:Name="ContextView" Background="#FF924DAC">
+
+        <Grid x:Name="ContextView">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/bgproo.png"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid x:Name="TopBar" MouseDown="TopBar_MouseDown" Background="Purple" Grid.Row="0">
+        <Grid x:Name="TopBar" MouseDown="TopBar_MouseDown" Grid.Row="0">
 
             <!--Application buttons like minimize, shutdown -->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 0">
 
                         <!--Minimalize App Button-->
 
-                        <Button x:Name="MinimalizeButton" Click="MinimalizeButton_Click" Height="40" Width="65" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Margin="0,-5,0,0">
-                            <materialDesign:PackIcon Kind="HorizontalLine" Height="40" Width="40"/>
+                        <Button x:Name="MinimalizeButton" Click="MinimalizeButton_Click" Height="40" Width="65" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Margin="0,0,0,0">
+                            <materialDesign:PackIcon Kind="HorizontalLine" Height="30" Width="30"/>
                         </Button>
 
                         <!--Shutdown App button-->
 
                         <Button x:Name="ButtonPower" Width="70"    
-                       Height="50" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="ButtonPower_Click" Margin="0,-5,0,0">
-                            <materialDesign:PackIcon Kind="Power" Height="40" Width="40"/>
+                       Height="50" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="ButtonPower_Click" Margin="-20,-5,0,0">
+                            <materialDesign:PackIcon Kind="Power" Height="30" Width="30"/>
                         </Button>
 
 
@@ -42,4 +44,5 @@
         
         <Frame x:Name="frame" Grid.Row="1" NavigationUIVisibility="Hidden" />
     </Grid>
+  
 </Window>
