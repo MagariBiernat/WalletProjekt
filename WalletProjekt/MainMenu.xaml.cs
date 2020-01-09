@@ -32,5 +32,10 @@ namespace WalletProjekt
             MainContent.DataContext = Dashboard;
             
         }
+
+        private void ButtonHome_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

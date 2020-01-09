@@ -171,17 +171,8 @@
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Resource Include="Images\bg.png" />
-    <Resource Include="Images\ice3.png" />
-    <Resource Include="Images\ice2.png" />
-    <Resource Include="Images\ice.png" />
-    <Resource Include="Images\bgprooo.png" />
-    <Resource Include="Images\bgproo.png" />
-    <Resource Include="Images\bgpro.png" />
     <Resource Include="Images\undraw_Savings_dwkw.png" />
     <Resource Include="Images\undraw_wallet_aym5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
