@@ -65,11 +65,13 @@ namespace WalletProjekt.Views
         {
             string firstName = String.Empty;
             string lastName = String.Empty;
+            string dataa = String.Empty;
+            string lastlogin = String.Empty;
             SqlCommand command = new SqlCommand();
             using(SqlConnection myCon = new SqlConnection(conn))
             using (myCon)
             {
-                command.CommandText = "SELECT firstName, lastName from Users where email = @email";
+                command.CommandText = "SELECT firstName, lastName, date_created, date_last_login from Users where email = @email";
                 command.Parameters.AddWithValue("@email", email);
                 using(command)
                 {
@@ -82,11 +84,15 @@ namespace WalletProjekt.Views
                         {
                             firstName = reader["firstName"].ToString();
                             lastName = reader["lastName"].ToString();
+                            dataa = reader["date_created"].ToString();
+                            lastlogin = reader["date_last_login"].ToString();
                             UserData user = new UserData()
                             {
                                 firstName = firstName,
                                 lastName = lastName,
-                                email = email
+                                email = email,
+                                dateCreated = Convert.ToDateTime(dataa)
+                                //lastLoginDate = lastlogin
                             };
                             ((MainWindow)App.Current.MainWindow).ReceiveUserData(user);
 

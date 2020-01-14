@@ -12,7 +12,10 @@ namespace WalletProjekt.Interfaces
         string category { get; set; }
         string type { get; set; }
         string desc { get; set; }
+        string useremail { get; set; }
         void AddNewPost();
+        void ReadThirtyPosts();
+        void DeletePost();
 
         
     }

@@ -17,7 +17,6 @@ namespace WalletProjekt.Classes
         public string _lastName { get; set; }
         public DateTime _dateCreated = DateTime.Now;
         public bool Added = false;
-
         // Add user to database while registering.
         public int AddUserToDatabase()
         {

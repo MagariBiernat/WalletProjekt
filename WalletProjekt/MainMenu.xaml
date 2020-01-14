@@ -7,29 +7,38 @@
         xmlns:local="clr-namespace:WalletProjekt"
         xmlns:views="clr-namespace:WalletProjekt.Views"
         xmlns:viewmodels="clr-namespace:WalletProjekt.ViewModels"
-        mc:Ignorable="d" Height="700" Width="400" Cursor="Arrow" 
+        mc:Ignorable="d" Height="660" Width="400" Cursor="Arrow" 
         FontFamily="Microsoft Sans Serif">
 
     <Page.Resources>
         <DataTemplate x:Name="DashboardTemplate" DataType="{x:Type viewmodels:DashboardModel}">
-            <views:Dashboard DataContext="{Binding LoginRegisterView}"/>
+            <views:Dashboard DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="ProfileTemplate" DataType="{x:Type viewmodels:ProfileModel}">
+            <views:Profile DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="PostsTemplate" DataType="{x:Type viewmodels:PostsModel}">
+            <views:Posts DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="StatsTemplate" DataType="{x:Type viewmodels:StatsModel}">
+            <views:Stats DataContext="{Binding}"/>
         </DataTemplate>
     </Page.Resources>
     <!--Main Menu here-->
-    <Grid x:Name="ContextView" Height="700" Width="400" Margin="0 20 0 0" >
+    <Grid x:Name="ContextView" Height="660" Width="400" Margin="0 0 0 0" >
 
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="205"/>
+            <RowDefinition Height="385" />
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
-        <Grid  Grid.Row="0" Height="400">
+        <Grid  Grid.Row="0">
 
-            <TextBlock FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Text="3.519 zł" Margin="0 35 0 0">
+            <TextBlock FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Text="3.519 zł" Margin="128,40,128,109" >
 
             </TextBlock>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 0">
+            <StackPanel Height="55" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 95 0 0" >
 
                 <Border CornerRadius="10" Background="white" Width="160" Height="50" Margin="0 0 20 0">
                     <Button x:Name="Plus"  Background="Transparent" BorderThickness="0" Foreground="Black" Content="Login"  />
@@ -40,25 +49,25 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1" Height="240">
-            <ContentControl x:Name="MainContent" Content="{Binding}" />
+        <Grid Grid.Row="1" Height="385">
+            <ContentControl x:Name="MainContent" Content="{Binding}" Height="385" />
         </Grid>
-        <Grid x:Name="MenuBar" Grid.Row="2"  HorizontalAlignment="Center" Height="60">
+        <Grid x:Name="MenuBar" Grid.Row="2" VerticalAlignment="Bottom" Margin="0 0 0 0" HorizontalAlignment="Center" Height="60">
             <StackPanel Orientation="Horizontal" Width="400" Height="60">
                 <Button x:Name="Home" Width="100"    
                        Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="ButtonHome_Click" >
                     <materialDesign:PackIcon Kind="Home" Height="30" Width="30"/>
                 </Button>
                 <Button x:Name="Posts" Width="100"    
-                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="ButtonHome_Click" >
+                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="Posts_Click" >
                     <materialDesign:PackIcon Kind="Assignment" Height="30" Width="30"/>
                 </Button>
                 <Button x:Name="Statistics" Width="100"    
-                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="ButtonHome_Click" >
+                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="Statistics_Click" >
                     <materialDesign:PackIcon Kind="Equalizer" Height="30" Width="30"/>
                 </Button>
                 <Button x:Name="Profile" Width="100"    
-                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="ButtonHome_Click" >
+                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="Profile_Click" >
                     <materialDesign:PackIcon Kind="PermIdentity" Height="30" Width="30"/>
                 </Button>
             </StackPanel>

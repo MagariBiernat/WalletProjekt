@@ -11,6 +11,8 @@ namespace WalletProjekt.Interfaces
         string firstName { get; set; }
         string lastName { get; set; }
         string email { get; set; }
+        DateTime dateCreated { get; set; }
+        DateTime lastLoginDate { get; set; }
         
 
     }

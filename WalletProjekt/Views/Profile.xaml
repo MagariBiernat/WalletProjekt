@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="WalletProjekt.Views.Profile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:WalletProjekt.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="385" d:DesignWidth="400">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="FirstName : "/>
+                <TextBlock x:Name="FirstNameVar" Text=""/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="LastName : "/>
+                <TextBlock x:Name="LastNameVar" Text=""/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Email : "/>
+                <TextBlock x:Name="EmailVar" Text=""/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Created Date: "/>
+                <TextBlock x:Name="CreatedDateVar" Text=""/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Last Login Date : "/>
+                <TextBlock x:Name="LastLoginDateVar" Text=""/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

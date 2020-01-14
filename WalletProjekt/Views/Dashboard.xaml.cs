@@ -27,8 +27,8 @@ namespace WalletProjekt.Views
         {
             GetUser();
             InitializeComponent();
-            Thread.Sleep(300);
-            Test();
+           // Thread.Sleep(300);
+            //Test();
 
 
             //var parent = VisualTreeHelper.GetParent(this);
@@ -46,7 +46,7 @@ namespace WalletProjekt.Views
         {
             var firstName = user.firstName;
             var email = user.email;
-            Dispatcher.BeginInvoke(new Action(() => MessageBox.Show(email)));
+           //Dispatcher.BeginInvoke(new Action(() => MessageBox.Show(email)));
         }
     }
    

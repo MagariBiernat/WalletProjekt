@@ -11,7 +11,7 @@ namespace WalletProjekt.Classes
 {
     class Posts : IPosts
     {
-        private string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
+        private readonly string  conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
 
         public int amount { get; set; }
         public string category { get; set; }

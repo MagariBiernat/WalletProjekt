@@ -23,7 +23,7 @@ namespace WalletProjekt
     /// </summary>
     public partial class MainMenu : Page
     {
-        UserData user = ((MainWindow)App.Current.MainWindow).GetUserData();
+        // UserData user = ((MainWindow)App.Current.MainWindow).GetUserData();
         public MainMenu()
         {
             
@@ -35,7 +35,26 @@ namespace WalletProjekt
 
         private void ButtonHome_Click(object sender, RoutedEventArgs e)
         {
+            DashboardModel Dashboard = new DashboardModel();
+            MainContent.DataContext = Dashboard;
+        }
 
+        private void Profile_Click(object sender, RoutedEventArgs e)
+        {
+            ProfileModel Profile = new ProfileModel();
+            MainContent.DataContext = Profile;
+        }
+
+        private void Posts_Click(object sender, RoutedEventArgs e)
+        {
+            PostsModel Posts = new PostsModel();
+            MainContent.DataContext = Posts;
+        }
+
+        private void Statistics_Click(object sender, RoutedEventArgs e)
+        {
+            StatsModel Stats = new StatsModel();
+            MainContent.DataContext = Stats;
         }
     }
 }
