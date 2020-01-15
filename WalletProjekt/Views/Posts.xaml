@@ -8,11 +8,90 @@
              mc:Ignorable="d" 
              d:DesignHeight="385" d:DesignWidth="400">
     <Grid>
-        <StackPanel x:Name="PostsStackPanel" Width="330" >
-            <Button x:Name="buttonadd" Content="asdfasdfas" Click="buttonadd_Click" ></Button>
-            <ScrollViewer Height="300" VerticalScrollBarVisibility="Auto">
-                <Grid x:Name="Grid_Grid" Margin="0,0,0,32"/>
-            </ScrollViewer>
+        <StackPanel x:Name="PostsStackPanel" Width="370" >
+     
+            <StackPanel>
+                <Grid x:Name="Grid_Grid" Margin="0,0,0,32">
+                    <StackPanel>
+                        <StackPanel Width="360" 
+                                Height="50" Orientation="Horizontal">
+                            <Label FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="200" Height="50">
+                                Dubra
+                            </Label>
+                            <Label HorizontalContentAlignment="Right" FontSize="20" VerticalContentAlignment="Center" Width="110" Height="50">
+                                500 zl
+                            </Label>
+                            <Button Width="50" Height="50"  Background="Transparent" BorderBrush="{x:Null}" Foreground="Black">
+                                <materialDesign:PackIcon Kind="MoreVert" Height="30" Width="30"/>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Width="360" 
+                                Height="50" Orientation="Horizontal">
+                            <Label FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="200" Height="50">
+                                Dubra
+                            </Label>
+                            <Label HorizontalContentAlignment="Right" FontSize="20" VerticalContentAlignment="Center" Width="110" Height="50">
+                                500 zl
+                            </Label>
+                            <Button Width="50" Height="50"  Background="Transparent" BorderBrush="{x:Null}" Foreground="Black">
+                                <materialDesign:PackIcon Kind="MoreVert" Height="30" Width="30"/>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Width="360" 
+                                Height="50" Orientation="Horizontal">
+                            <Label FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="200" Height="50">
+                                Dubra
+                            </Label>
+                            <Label HorizontalContentAlignment="Right" FontSize="20" VerticalContentAlignment="Center" Width="110" Height="50">
+                                500 zl
+                            </Label>
+                            <Button Width="50" Height="50"  Background="Transparent" BorderBrush="{x:Null}" Foreground="Black">
+                                <materialDesign:PackIcon Kind="MoreVert" Height="30" Width="30"/>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Width="360" 
+                                Height="50" Orientation="Horizontal">
+                            <Label FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="200" Height="50">
+                                Dubra
+                            </Label>
+                            <Label HorizontalContentAlignment="Right" FontSize="20" VerticalContentAlignment="Center" Width="110" Height="50">
+                                500 zl
+                            </Label>
+                            <Button Width="50" Height="50"  Background="Transparent" BorderBrush="{x:Null}" Foreground="Black">
+                                <materialDesign:PackIcon Kind="MoreVert" Height="30" Width="30"/>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Width="360" 
+                                Height="50" Orientation="Horizontal">
+                            <Label FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="200" Height="50">
+                                Dubra
+                            </Label>
+                            <Label HorizontalContentAlignment="Right" FontSize="20" VerticalContentAlignment="Center" Width="110" Height="50">
+                                500 zl
+                            </Label>
+                            <Button Width="50" Height="50"  Background="Transparent" BorderBrush="{x:Null}" Foreground="Black">
+                                <materialDesign:PackIcon Kind="MoreVert" Height="30" Width="30"/>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Width="360" 
+                                Height="50" Orientation="Horizontal">
+                            <Label FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="200" Height="50">
+                                Dubra
+                            </Label>
+                            <Label HorizontalContentAlignment="Right" FontSize="20" VerticalContentAlignment="Center" Width="110" Height="50">
+                                500 zl
+                            </Label>
+                            <Button Width="50" Height="50"  Background="Transparent" BorderBrush="{x:Null}" Foreground="Black">
+                                <materialDesign:PackIcon Kind="MoreVert" Height="30" Width="30"/>
+                            </Button>
+                        </StackPanel>
+                        
+                        <Button x:Name="buttonadd" Content="asdfasdfas" Click="buttonadd_Click" ></Button>
+                    </StackPanel>
+                    
+                </Grid>
+            </StackPanel>
         </StackPanel>
+        
     </Grid>
 </UserControl>
