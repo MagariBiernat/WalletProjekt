@@ -8,6 +8,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="385" d:DesignWidth="400">
     <Grid>
-            
+        <StackPanel x:Name="PostsStackPanel" Width="330" >
+            <Button x:Name="buttonadd" Content="asdfasdfas" Click="buttonadd_Click" ></Button>
+            <ScrollViewer Height="300" VerticalScrollBarVisibility="Auto">
+                <Grid x:Name="Grid_Grid" Margin="0,0,0,32"/>
+            </ScrollViewer>
+        </StackPanel>
     </Grid>
 </UserControl>

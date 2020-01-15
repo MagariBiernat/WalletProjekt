@@ -8,14 +8,17 @@ namespace WalletProjekt.Interfaces
 {
     interface IPosts
     {
-        int amount { get; set; }
+        float amount { get; set; }
         string category { get; set; }
         string type { get; set; }
         string desc { get; set; }
         string useremail { get; set; }
-        void AddNewPost();
-        void ReadThirtyPosts();
-        void DeletePost();
+        int postId { get; set; }
+        DateTime datetime { get; set; }
+        bool AddNewPost();
+        void ReadTenPosts(int page);
+        bool DeletePost(int Id);
+        void ReadLastMonth();
 
         
     }

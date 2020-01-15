@@ -67,8 +67,8 @@ namespace WalletProjekt.Classes
             using (myCon)
             {
                 comm.CommandText = "CREATE TABLE [dbo].[" + userName + "]" +
-                                    "([Id] INT NOT NULL PRIMARY KEY," +
-                                    "[amount] INT NOT NULL," +
+                                    "([Id] INT NOT NULL PRIMARY KEY IDENTITY," +
+                                    "[amount] FLOAT NOT NULL," +
                                     "[category] NVARCHAR(50) NOT NULL," +
                                     "[datetime] DATETIME2 NOT NULL," +
                                     "[desc] NVARCHAR(MAX) NULL )";
