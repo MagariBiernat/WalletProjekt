@@ -27,8 +27,6 @@ namespace WalletProjekt.Views
         {
             GetUser();
             InitializeComponent();
-           // Thread.Sleep(300);
-            //Test();
 
 
             //var parent = VisualTreeHelper.GetParent(this);
@@ -42,11 +40,18 @@ namespace WalletProjekt.Views
         {
             user = ((MainWindow)App.Current.MainWindow).GetUserData();
         }
-        private void Test()
+        private void Last30Days()
         {
-            var firstName = user.firstName;
-            var email = user.email;
-           //Dispatcher.BeginInvoke(new Action(() => MessageBox.Show(email)));
+            Classes.Posts Last30Days = new Classes.Posts();
+            Last30Days.useremail = user.email;
+            float balance = Last30Days.ReadLastMonth();
+
+            LastMonthBalanceVar.Text = balance.ToString();
+        }
+
+        private void Dashboard_Loaded(object sender, RoutedEventArgs e)
+        {
+            Last30Days();
         }
     }
    

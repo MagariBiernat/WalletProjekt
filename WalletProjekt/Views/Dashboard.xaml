@@ -6,8 +6,27 @@
              xmlns:local="clr-namespace:WalletProjekt.Views"
              xmlns:viewModels="clr-namespace:WalletProjekt.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="400">
+             d:DesignHeight="385" d:DesignWidth="400"
+             Loaded="Dashboard_Loaded">
     <Grid>
+        <ScrollViewer Height="385" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Visible">
+            <Grid Width="380"  Height="385" Background="Transparent">
+                <StackPanel>
+                    <Grid x:Name="LastMonthBalance" Height="100" Background="AntiqueWhite">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="Last 30 days = "  FontSize="25" />
+                            <TextBlock x:Name="LastMonthBalanceVar" Text=""  FontSize="25" />
+                        </StackPanel>
 
+                    </Grid>
+                    <Grid x:Name="bb" Height="100" Background="AliceBlue">
+
+
+                    </Grid>
+
+                </StackPanel>
+
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>
