@@ -14,6 +14,9 @@ namespace WalletProjekt.Classes
         public string email { get; set; }
         public DateTime dateCreated { get; set; }
         public DateTime lastLoginDate { get; set; }
+        public float balance { get; set; }
+        public int SalaryDay { get; set; }
+        public float SalaryAmount { get; set; }
 
     }
 }

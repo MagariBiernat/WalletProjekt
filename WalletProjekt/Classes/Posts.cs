@@ -17,15 +17,14 @@ namespace WalletProjekt.Classes
         public string category { get; set; }
         public string type { get; set; }
         public string desc { get; set; }
-<<<<<<< Updated upstream
-=======
+
         public string useremail { get; set; }
         public int postId { get; set; }
         public DateTime datetime { get; set; }
         private string postsDbName { get; set; }
->>>>>>> Stashed changes
 
-        public void AddNewPost()
+
+        public bool AddNewPost()
         {
             SqlCommand comm = new SqlCommand();
             using(SqlConnection myCon = new SqlConnection(conn))
@@ -33,9 +32,8 @@ namespace WalletProjekt.Classes
             {
                 comm.CommandText = "INSERT INTO posts";
                 //
+                return true;
             }
-<<<<<<< Updated upstream
-=======
 
         }
         public float ReadLastMonth()
@@ -77,7 +75,16 @@ namespace WalletProjekt.Classes
             }
 
 
->>>>>>> Stashed changes
+        }
+        public void ReadTenPosts(int page)
+        {
+
+        }
+        public bool DeletePost(int Id)
+        {
+
+
+            return true;
         }
 
     }

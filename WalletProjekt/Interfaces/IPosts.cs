@@ -13,18 +13,12 @@ namespace WalletProjekt.Interfaces
         string type { get; set; }
         string desc { get; set; }
         string useremail { get; set; }
-<<<<<<< Updated upstream
-        void AddNewPost();
-        void ReadThirtyPosts();
-        void DeletePost();
-=======
         int postId { get; set; }
         DateTime datetime { get; set; }
         bool AddNewPost();
         void ReadTenPosts(int page);
         bool DeletePost(int Id);
         float ReadLastMonth();
->>>>>>> Stashed changes
 
         
     }
