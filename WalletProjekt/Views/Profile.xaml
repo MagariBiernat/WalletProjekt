@@ -9,30 +9,59 @@
              d:DesignHeight="385" d:DesignWidth="400">
     <Grid>
         <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="FirstName : "/>
-                <TextBlock x:Name="FirstNameVar" Text=""/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="LastName : "/>
-                <TextBlock x:Name="LastNameVar" Text=""/>
-            </StackPanel>
             
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Email : "/>
-                <TextBlock x:Name="EmailVar" Text=""/>
-            </StackPanel>
+            <!--user's info-->
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Created Date: "/>
-                <TextBlock x:Name="CreatedDateVar" Text=""/>
-            </StackPanel>
+            <Grid x:Name="Info">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="FirstName : "/>
+                        <TextBlock x:Name="FirstNameVar" Text=""/>
+                    </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Last Login Date : "/>
-                <TextBlock x:Name="LastLoginDateVar" Text=""/>
-            </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="LastName : "/>
+                        <TextBlock x:Name="LastNameVar" Text=""/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Email : "/>
+                        <TextBlock x:Name="EmailVar" Text=""/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Created Date: "/>
+                        <TextBlock x:Name="CreatedDateVar" Text=""/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Last Login Date : "/>
+                        <TextBlock x:Name="LastLoginDateVar" Text=""/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Monthly Salary"/>
+                        <TextBlock x:Name="MonthSalaryAmountVar" Text=""/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Salary's Date : "/>
+                        <TextBlock x:Name="SalaryDayVar" Text=""/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid x:Name="InfoChange">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="FirstName : "/>
+                        <TextBox x:Name="firstNameVarChange" />
+                    </StackPanel>
+
+                </StackPanel>
+                
+            </Grid>
+
+
         </StackPanel>
     </Grid>
 </UserControl>

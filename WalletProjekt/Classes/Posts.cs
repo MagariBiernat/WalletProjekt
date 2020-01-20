@@ -21,6 +21,15 @@ namespace WalletProjekt.Classes
         public int postId { get; set; }
         public DateTime datetime { get; set; }
 
+<<<<<<< HEAD
+=======
+        public string useremail { get; set; }
+        public int postId { get; set; }
+        public DateTime datetime { get; set; }
+        private string postsDbName { get; set; }
+
+
+>>>>>>> login
         public bool AddNewPost()
         {
             datetime = DateTime.Now;
@@ -28,6 +37,7 @@ namespace WalletProjekt.Classes
             using(SqlConnection myCon = new SqlConnection(conn))
             using(myCon)
             {
+<<<<<<< HEAD
                 comm.CommandText = "INSERT INTO "+useremail+"PostsDatabase (amount, category , datetime, desc) VALUES (@amount, @category, @datetime , @desc)";
                 comm.Parameters.AddWithValue("@amount", amount);
                 comm.Parameters.AddWithValue("@category", category);
@@ -52,22 +62,45 @@ namespace WalletProjekt.Classes
         {
             ListPosts.Clear();
             int OFFSET = page * 10;
+=======
+                comm.CommandText = "INSERT INTO posts";
+                //
+                return true;
+            }
+
+        }
+        public float ReadLastMonth()
+        {
+            DateTime ThirtyDaysAgo = DateTime.Now.AddDays(-30);
+            float lastMonthBalance = 0;
+            postsDbName = useremail+"PostsDatabase";
+>>>>>>> login
             SqlCommand command = new SqlCommand();
             using(SqlConnection myCon = new SqlConnection(conn))
             using(myCon)
             {
+<<<<<<< HEAD
                 command.CommandText = "SELECT * FROM " + useremail + "PostsDatabase ORDER BY datetime DESC LIMIT 10 OFFSET @OFFSET";
                 command.Parameters.AddWithValue("@OFFSET", OFFSET);
 
+=======
+                command.CommandText = "SELECT amount,category FROM " + postsDbName + " where datetime > @ago";
+                command.Parameters.AddWithValue("@ago", ThirtyDaysAgo);
+>>>>>>> login
                 using(command)
                 {
                     myCon.Open();
                     command.Connection = myCon;
                     SqlDataReader reader = command.ExecuteReader();
+<<<<<<< HEAD
+=======
+
+>>>>>>> login
                     if(reader.HasRows)
                     {
                         while(reader.Read())
                         {
+<<<<<<< HEAD
                             ListPosts.Add(new Posts()
                             {
                                 amount = Convert.ToInt32(reader["amount"]),
@@ -117,6 +150,36 @@ namespace WalletProjekt.Classes
             }
 
 
+=======
+                            if(reader["category"].ToString() == "profit")
+                            {
+                                int i = Convert.ToInt32(reader["amount"]);
+                                lastMonthBalance += Convert.ToSingle(i);
+                            }
+                            else
+                            {
+                                int i = Convert.ToInt32(reader["amount"]);
+                                lastMonthBalance -= Convert.ToSingle(i);
+                            }
+                        }
+                            
+                    }
+                    return lastMonthBalance;
+                }
+            }
+
+
+        }
+        public void ReadTenPosts(int page)
+        {
+
+        }
+        public bool DeletePost(int Id)
+        {
+
+
+            return true;
+>>>>>>> login
         }
 
     }

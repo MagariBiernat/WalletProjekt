@@ -67,32 +67,47 @@ namespace WalletProjekt.Views
             string lastName = String.Empty;
             string dataa = String.Empty;
             string lastlogin = String.Empty;
+            float _balance = 0;
+            int _salaryday = 0;
+            float _salaryamount = 0;
             SqlCommand command = new SqlCommand();
             using(SqlConnection myCon = new SqlConnection(conn))
             using (myCon)
             {
-                command.CommandText = "SELECT firstName, lastName, date_created, date_last_login from Users where email = @email";
+                command.CommandText = "SELECT firstName, lastName, date_created, date_last_login, balance, monthly_salary, dayofmonth_salary from Users where email = @email";
                 command.Parameters.AddWithValue("@email", email);
                 using(command)
                 {
                     myCon.Open();
                     command.Connection = myCon;
                     SqlDataReader reader = command.ExecuteReader();
-                    if(reader.HasRows)
+                    if (reader.HasRows)
                     {
-                        while(reader.Read())
+                        while (reader.Read())
                         {
                             firstName = reader["firstName"].ToString();
                             lastName = reader["lastName"].ToString();
                             dataa = reader["date_created"].ToString();
                             lastlogin = reader["date_last_login"].ToString();
+                            _balance = float.Parse(reader["balance"].ToString());
+                            _salaryday = Convert.ToInt32(reader["dayofmonth_salary"]);
+                            _salaryamount = float.Parse(reader["monthly_salary"].ToString());
+                            if (String.IsNullOrEmpty(lastlogin))
+                            {
+                                lastlogin = DateTime.Now.ToShortDateString();
+                            }
+                            
                             UserData user = new UserData()
                             {
                                 firstName = firstName,
                                 lastName = lastName,
                                 email = email,
-                                dateCreated = Convert.ToDateTime(dataa)
-                                //lastLoginDate = lastlogin
+                                dateCreated = Convert.ToDateTime(dataa),
+                                lastLoginDate = Convert.ToDateTime(lastlogin),
+                                balance = _balance,
+                                SalaryDay = _salaryday,
+                                SalaryAmount = _salaryamount
+
                             };
                             ((MainWindow)App.Current.MainWindow).ReceiveUserData(user);
 

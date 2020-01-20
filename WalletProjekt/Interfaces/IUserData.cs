@@ -13,6 +13,9 @@ namespace WalletProjekt.Interfaces
         string email { get; set; }
         DateTime dateCreated { get; set; }
         DateTime lastLoginDate { get; set; }
+        float balance { get; set; }
+        int SalaryDay { get; set; }
+        float SalaryAmount { get; set; }
         
 
     }

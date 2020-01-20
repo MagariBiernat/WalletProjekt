@@ -18,7 +18,11 @@ namespace WalletProjekt.Interfaces
         bool AddNewPost();
         void ReadTenPosts(int page);
         bool DeletePost(int Id);
+<<<<<<< HEAD
         void ReadLastMonth();
+=======
+        float ReadLastMonth();
+>>>>>>> login
 
         
     }

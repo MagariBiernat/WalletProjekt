@@ -40,8 +40,11 @@ namespace WalletProjekt.Views
             FirstNameVar.Text = user.firstName;
             LastNameVar.Text = user.lastName;
             EmailVar.Text = user.email;
-           // DateTime UserCreatedDate = user.dateCreated.
             CreatedDateVar.Text = user.dateCreated.ToShortDateString();
+            LastLoginDateVar.Text = user.lastLoginDate.ToShortDateString();
+            MonthSalaryAmountVar.Text = user.SalaryAmount.ToString();
+            SalaryDayVar.Text = "Every " + user.SalaryDay + "th of the month.";
+
 
         }
     }
