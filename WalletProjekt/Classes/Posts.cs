@@ -20,10 +20,6 @@ namespace WalletProjekt.Classes
         public string useremail { get; set; }
         public int postId { get; set; }
         public DateTime datetime { get; set; }
-
-        public string useremail { get; set; }
-        public int postId { get; set; }
-        public DateTime datetime { get; set; }
         private string postsDbName { get; set; }
 
 
@@ -56,12 +52,12 @@ namespace WalletProjekt.Classes
         }
         public void ReadTenPosts(int page)
         {
-            ListPosts.Clear();
-            int OFFSET = page * 10;
-                comm.CommandText = "INSERT INTO posts";
-                //
-                return true;
-            }
+            //ListPosts.Clear();
+            //int OFFSET = page * 10;
+            //    comm.CommandText = "INSERT INTO posts";
+            //    //
+            //    return true;
+            //}
 
         }
         public float ReadLastMonth()
@@ -73,10 +69,10 @@ namespace WalletProjekt.Classes
             using(SqlConnection myCon = new SqlConnection(conn))
             using(myCon)
             {
-                command.CommandText = "SELECT * FROM " + useremail + "PostsDatabase ORDER BY datetime DESC LIMIT 10 OFFSET @OFFSET";
+                //command.CommandText = "SELECT * FROM " + useremail + "PostsDatabase ORDER BY datetime DESC LIMIT 10 OFFSET @OFFSET";
 
-                command.Parameters.AddWithValue("@OFFSET", OFFSET);
-                command.CommandText = "SELECT amount,category FROM " + postsDbName + " where datetime > @ago";
+                //command.Parameters.AddWithValue("@OFFSET", OFFSET);
+                command.CommandText = "SELECT amount,category  FROM " + postsDbName + " where datetime > @ago";
                 command.Parameters.AddWithValue("@ago", ThirtyDaysAgo);
                 using(command)
                 {
@@ -92,16 +88,27 @@ namespace WalletProjekt.Classes
                             {
                                 amount = Convert.ToInt32(reader["amount"]),
                                 category = reader["category"].ToString(),
-                                datetime = Convert.ToDateTime(reader["datetime"]),
-                                desc = reader["desc"].ToString(),
-                                postId = Convert.ToInt32(reader["Id"])
+                                //datetime = Convert.ToDateTime(reader["datetime"]),
+                                //desc = reader["desc"].ToString(),
+                                //postId = Convert.ToInt32(reader["Id"])
                             });
+                            if (reader["category"].ToString() == "profit")
+                            {
+                                int i = Convert.ToInt32(reader["amount"]);
+                                lastMonthBalance += Convert.ToSingle(i);
+                            }
+                            else
+                            {
+                                int i = Convert.ToInt32(reader["amount"]);
+                                lastMonthBalance -= Convert.ToSingle(i);
+                            }
                         }
+
                     }
-
+                    return lastMonthBalance;
                 }
-
             }
+
         }
         public bool DeletePost(int Id)
         {
@@ -127,45 +134,35 @@ namespace WalletProjekt.Classes
             }
 
         }
-        public void ReadLastMonth()
-        {
-            SqlCommand command = new SqlCommand();
-            using(SqlConnection myCon = new SqlConnection(conn))
-            using(myCon)
-            {
-                command.CommandText = "SELECT amount FROM " + useremail + "PostsDatabase ";
-            }
+        //public void ReadLastMonth()
+        //{
+        //    SqlCommand command = new SqlCommand();
+        //    using(SqlConnection myCon = new SqlConnection(conn))
+        //    using(myCon)
+        //    {
+        //        command.CommandText = "SELECT amount FROM " + useremail + "PostsDatabase ";
+        //    }
 
 
-                            if(reader["category"].ToString() == "profit")
-                            {
-                                int i = Convert.ToInt32(reader["amount"]);
-                                lastMonthBalance += Convert.ToSingle(i);
-                            }
-                            else
-                            {
-                                int i = Convert.ToInt32(reader["amount"]);
-                                lastMonthBalance -= Convert.ToSingle(i);
-                            }
-                        }
+        //                    if(reader["category"].ToString() == "profit")
+        //                    {
+        //                        int i = Convert.ToInt32(reader["amount"]);
+        //                        lastMonthBalance += Convert.ToSingle(i);
+        //                    }
+        //                    else
+        //                    {
+        //                        int i = Convert.ToInt32(reader["amount"]);
+        //                        lastMonthBalance -= Convert.ToSingle(i);
+        //                    }
+        //                }
                             
-                    }
-                    return lastMonthBalance;
-                }
-            }
+        //            }
+        //            return lastMonthBalance;
+        //        }
+        //    }
 
 
-        }
-        public void ReadTenPosts(int page)
-        {
-
-        }
-        public bool DeletePost(int Id)
-        {
-
-
-            return true;
-        }
+        //}
 
     }
 }
