@@ -20,9 +20,19 @@
 
                     </Grid>
                     <Grid x:Name="bb" Height="100" Background="AliceBlue">
-
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="Average daily income = "  FontSize="25" />
+                            <TextBlock x:Name="AverageDailyVar" Text=""  FontSize="25" />
+                        </StackPanel>
 
                     </Grid>
+                    <!--<Grid x:Name="bbc" Height="100" Background="AliceBlue">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="Average daily income = "  FontSize="25" />
+                            <TextBlock x:Name="AverageDaily" Text=""  FontSize="25" />
+                        </StackPanel>
+
+                    </Grid>-->
 
                 </StackPanel>
 

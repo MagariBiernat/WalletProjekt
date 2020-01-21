@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="WalletProjekt.Views.Profit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:WalletProjekt.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="385" d:DesignWidth="400"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <StackPanel Margin="0 15 0 0" Width="350">
+            <TextBlock Text="Your new income." VerticalAlignment="Top" HorizontalAlignment="Center"
+                           FontSize="35"/>
+            <TextBox Name="NumberTextBox" PreviewTextInput="NumberValidationTextBox" Width="100" Margin="0 10 0 10"/>
+            <ComboBox x:Name="CategoriesCombobox" Width="100" Margin="0 0 0 10">
+
+            </ComboBox>
+            <Button Width="130" Content="Submit" Foreground="White" FontSize="20" Height="40" />
+        </StackPanel>
+    </Grid>
+</UserControl>

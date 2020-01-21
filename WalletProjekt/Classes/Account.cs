@@ -27,8 +27,8 @@ namespace WalletProjekt.Classes
             using (myCon)
             {
                 string dateCreated = DateTime.Now.ToString("yyyy-MM-dd");
-                command.CommandText = "INSERT INTO Users (email,password,date_created,firstName,lastName) " +
-                    "VALUES ('@email','@password',@date_created, 'firstName','@lastName');";
+                command.CommandText = "INSERT INTO Users (email,password,date_created,firstName,lastName, balance, monthly_salary, dayofmonth_salary) " +
+                    "VALUES (@email,@password,@date_created, @firstName, @lastName, 0,0,0);";
                 command.Parameters.AddWithValue("@email", _email);
                 command.Parameters.AddWithValue("@password", _password);
                 command.Parameters.Add("@date_created", System.Data.SqlDbType.Date

@@ -48,10 +48,18 @@ namespace WalletProjekt.Views
 
             LastMonthBalanceVar.Text = balance.ToString();
         }
+        private void AverageDaily()
+        {
+            Classes.Posts Last30DaysToAverage = new Classes.Posts();
+            Last30DaysToAverage.useremail = user.email;
+            float balance = Last30DaysToAverage.ReadLastMonth();
+            AverageDailyVar.Text = (balance / 30).ToString();
+        }
 
         private void Dashboard_Loaded(object sender, RoutedEventArgs e)
         {
             Last30Days();
+            AverageDaily();
         }
     }
    

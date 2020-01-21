@@ -16,7 +16,8 @@ namespace WalletProjekt.Interfaces
         float balance { get; set; }
         int SalaryDay { get; set; }
         float SalaryAmount { get; set; }
-        
+
+        float GetBalance();
 
     }
 }

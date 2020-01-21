@@ -18,5 +18,9 @@ namespace WalletProjekt.Classes
         public int SalaryDay { get; set; }
         public float SalaryAmount { get; set; }
 
+        public float GetBalance()
+        {
+            return balance;
+        }
     }
 }

@@ -23,14 +23,24 @@ namespace WalletProjekt
     /// </summary>
     public partial class MainMenu : Page
     {
+        UserData user;
         // UserData user = ((MainWindow)App.Current.MainWindow).GetUserData();
         public MainMenu()
         {
-            
+            GetUser();
             InitializeComponent();
             DashboardModel Dashboard = new DashboardModel();
             MainContent.DataContext = Dashboard;
             
+        }
+        private void GetUser()
+        {
+            user = ((MainWindow)App.Current.MainWindow).GetUserData();
+        }
+        public void ReadBalance()
+        {
+            float balance = user.GetBalance();
+            BalanceVar.Text = balance.ToString() + " zl ";
         }
 
         private void ButtonHome_Click(object sender, RoutedEventArgs e)
@@ -55,6 +65,23 @@ namespace WalletProjekt
         {
             StatsModel Stats = new StatsModel();
             MainContent.DataContext = Stats;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            ReadBalance();
+        }
+
+        private void Minus_Click(object sender, RoutedEventArgs e)
+        {
+            WasteModel Waste = new WasteModel();
+            MainContent.DataContext = Waste;
+        }
+
+        private void Plus_Click(object sender, RoutedEventArgs e)
+        {
+            ProfitModel Profit = new ProfitModel();
+            MainContent.DataContext = Profit;
         }
     }
 }

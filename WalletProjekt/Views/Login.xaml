@@ -21,7 +21,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 60 0 20">
 
                     <Border CornerRadius="10" Background="white" Width="160" Height="50" Margin="0 0 20 0">
-                        <Button x:Name="LoginButton"  Background="Transparent" BorderThickness="0" Foreground="Black" Content="Login"  Click="LoginButton_Click" />
+                        <Button x:Name="LoginButton"  Background="Transparent" BorderThickness="0" Foreground="Black" Content="Login"  Click="LoginButton_Click" IsDefault="True" />
                     </Border>
                     <Border CornerRadius="10" Background="white" Width="160" Height="50" >
                         <Button x:Name="RegisterNewAccountButton" Background="Transparent" BorderThickness="0" Foreground="Black" Content="Sign Up" Click="RegisterNewAccountButton_Click" Width="160" Height="50"/>

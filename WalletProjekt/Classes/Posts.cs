@@ -134,35 +134,7 @@ namespace WalletProjekt.Classes
             }
 
         }
-        //public void ReadLastMonth()
-        //{
-        //    SqlCommand command = new SqlCommand();
-        //    using(SqlConnection myCon = new SqlConnection(conn))
-        //    using(myCon)
-        //    {
-        //        command.CommandText = "SELECT amount FROM " + useremail + "PostsDatabase ";
-        //    }
-
-
-        //                    if(reader["category"].ToString() == "profit")
-        //                    {
-        //                        int i = Convert.ToInt32(reader["amount"]);
-        //                        lastMonthBalance += Convert.ToSingle(i);
-        //                    }
-        //                    else
-        //                    {
-        //                        int i = Convert.ToInt32(reader["amount"]);
-        //                        lastMonthBalance -= Convert.ToSingle(i);
-        //                    }
-        //                }
-                            
-        //            }
-        //            return lastMonthBalance;
-        //        }
-        //    }
-
-
-        //}
+        
 
     }
 }
