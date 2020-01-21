@@ -8,54 +8,61 @@
              mc:Ignorable="d" 
              d:DesignHeight="385" d:DesignWidth="400">
     <Grid>
-        <StackPanel>
+        <StackPanel Background="white">
             
             <!--user's info-->
 
-            <Grid x:Name="Info">
+            <Grid x:Name="Info" Height="350" Visibility="Visible" Margin="40px 10px">
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="FirstName : "/>
-                        <TextBlock x:Name="FirstNameVar" Text=""/>
+                    <StackPanel>
+                        <TextBlock Padding="1" Text="Name" Foreground="Gray" HorizontalAlignment="Center" Margin="3"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Height="25"  x:Name="FirstNameVar" FontSize="16px" Text="" HorizontalAlignment="Center" Margin="0 0 6 0"/>
+                        <TextBlock Height="25"  x:Name="LastNameVar" FontSize="16px" Text="" HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    <StackPanel>
+                        <TextBlock Padding="1" Text="E-mail" Foreground="Gray" HorizontalAlignment="Center" Margin="3"/>
+                        <TextBlock Height="25"  x:Name="EmailVar" FontSize="16px" Text="" HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Padding="1" Text="Last login" Foreground="Gray" HorizontalAlignment="Center" Margin="3"/>
+                        <TextBlock Height="25"  x:Name="LastLoginDateVar" FontSize="16px" Text="" HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Padding="1" Text="Monthly salary" Foreground="Gray" HorizontalAlignment="Center" Margin="3"/>
+                        <TextBlock Height="25"  x:Name="MonthSalaryAmountVar" FontSize="16px" Text="" HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Padding="1" Text="Salary's date" Foreground="Gray" HorizontalAlignment="Center" Margin="3"/>
+                        <TextBlock Height="25"  x:Name="SalaryDayVar" FontSize="16px" Text="" HorizontalAlignment="Center" />
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="LastName : "/>
-                        <TextBlock x:Name="LastNameVar" Text=""/>
-                    </StackPanel>
+                    <Border CornerRadius="20" Background="CadetBlue" Width="160" Height="50" Margin="0 49 0 0">
+                        <Button x:Name="Edit"  Background="Transparent" BorderThickness="0" Foreground="White" Content="Edit"  />
+                    </Border>
 
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Email : "/>
-                        <TextBlock x:Name="EmailVar" Text=""/>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Created Date: "/>
-                        <TextBlock x:Name="CreatedDateVar" Text=""/>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Last Login Date : "/>
-                        <TextBlock x:Name="LastLoginDateVar" Text=""/>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Monthly Salary"/>
-                        <TextBlock x:Name="MonthSalaryAmountVar" Text=""/>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Salary's Date : "/>
-                        <TextBlock x:Name="SalaryDayVar" Text=""/>
-                    </StackPanel>
                 </StackPanel>
             </Grid>
-            <Grid x:Name="InfoChange">
+            <Grid x:Name="InfoChange"  Margin="-370" Visibility="Hidden" >
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="FirstName : "/>
-                        <TextBox x:Name="firstNameVarChange" />
+                    <StackPanel Width="300">
+                        <TextBox x:Name="firstNameVarChang" materialDesign:HintAssist.Hint="First Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 30 0 10" />
                     </StackPanel>
+                    <StackPanel Width="300">
+                        <TextBox x:Name="lastNameVarChang" materialDesign:HintAssist.Hint="Last Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 10 0 10" />
+                    </StackPanel>
+                    <StackPanel Width="300">
+                        <TextBox x:Name="MonthSalaryAmountVarChange" materialDesign:HintAssist.Hint="Monthly Salary" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 10 0 10" />
+                    </StackPanel>
+                    <StackPanel Width="300">
+                        <TextBox x:Name="SalaryDayVarChange" materialDesign:HintAssist.Hint="Salary's Date" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 10 0 10" />
+                    </StackPanel>
+                    
+                    <Border CornerRadius="20" Background="CadetBlue" Width="160" Height="50" Margin="0 55 2 0">
+                        <Button x:Name="Save"  Background="Transparent" BorderThickness="0" Foreground="White" Content="Save"  />
+                    </Border>
 
                 </StackPanel>
                 
