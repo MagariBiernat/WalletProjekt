@@ -13,33 +13,54 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Text.RegularExpressions;
 using System.Windows.Shapes;
+using WalletProjekt.Classes;
 
 namespace WalletProjekt.Views
 {
     /// <summary>
     /// Interaction logic for Profit.xaml
     /// </summary>
+    /// 
+    
     public partial class Profit : UserControl
     {
+        UserData user;
+
         string[] categories = new string[] { "Food", "House", "Transport", "Fun", "Income", "Investment", "Vehicle" };
         public Profit()
         {
+            GetUser();
             InitializeComponent();
+        }
+        private void GetUser()
+        {
+            user = ((MainWindow)App.Current.MainWindow).GetUserData();
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < categories.Length; i++)
+            // nothing   
+        }
+        private void ProfitSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            if (AmountTextBox.Text != "")
             {
-                CategoriesCombobox.Items.Add(categories[i]);
+                int Amount = Convert.ToInt32(AmountTextBox.Text);
+                string desc = DescriptionVar.Text.ToString();
+                Classes.Posts post = new Classes.Posts();
+
+                bool result = post.AddNewPost(Amount, "profit", desc, user.email);
+                if (result)
+                {
+                    MessageBox.Show("Post has been added.");
+                }
+                else
+                    MessageBox.Show("An error occured.");   
             }
         }
-
-        
     }
 }

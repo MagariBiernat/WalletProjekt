@@ -23,24 +23,24 @@ namespace WalletProjekt.Classes
         private string postsDbName { get; set; }
 
 
-        public bool AddNewPost()
+        public bool AddNewPost(int _amount, string _category, string _desc, string email)
         {
             datetime = DateTime.Now;
             SqlCommand comm = new SqlCommand();
             using(SqlConnection myCon = new SqlConnection(conn))
             using(myCon)
             {
-                comm.CommandText = "INSERT INTO "+useremail+"PostsDatabase (amount, category , datetime, desc) VALUES (@amount, @category, @datetime , @desc)";
-                comm.Parameters.AddWithValue("@amount", amount);
-                comm.Parameters.AddWithValue("@category", category);
+                comm.CommandText = "INSERT INTO "+email+"PostsDatabase (amount , category , datetime, description) VALUES (@amount, @category, @datetime , @desc)";
+                comm.Parameters.AddWithValue("@amount", _amount);
+                comm.Parameters.AddWithValue("@category", _category);
                 comm.Parameters.AddWithValue("@datetime", datetime);
-                comm.Parameters.AddWithValue("@desc", desc);
+                comm.Parameters.AddWithValue("@desc", _desc);
                 using(comm)
                 {
                     myCon.Open();
                     comm.Connection = myCon;
                     int result = comm.ExecuteNonQuery();
-                    if (result != 0)
+                    if (result != -1)
                     {
                         return true;
                     }

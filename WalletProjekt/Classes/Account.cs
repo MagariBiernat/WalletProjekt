@@ -67,11 +67,11 @@ namespace WalletProjekt.Classes
             using (myCon)
             {
                 comm.CommandText = "CREATE TABLE [dbo].[" + userName + "]" +
-                                    "([Id] INT NOT NULL PRIMARY KEY IDENTITY," +
+                                    "([Id] INT IDENTITY (1, 1) NOT NULL," +
                                     "[amount] FLOAT NOT NULL," +
                                     "[category] NVARCHAR(50) NOT NULL," +
                                     "[datetime] DATETIME2 NOT NULL," +
-                                    "[desc] NVARCHAR(MAX) NULL )";
+                                    "[description]     NVARCHAR (255) NOT NULL DEFAULT 'brak', PRIMARY KEY CLUSTERED([Id] ASC)";
                 using (comm)
                 {
                     myCon.Open();

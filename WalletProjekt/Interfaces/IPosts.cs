@@ -15,7 +15,7 @@ namespace WalletProjekt.Interfaces
         string useremail { get; set; }
         int postId { get; set; }
         DateTime datetime { get; set; }
-        bool AddNewPost();
+        bool AddNewPost(int _amount, string _category, string _desc, string email);
         void ReadTenPosts(int page);
         bool DeletePost(int Id);
         float ReadLastMonth();
