@@ -45,13 +45,14 @@ namespace WalletProjekt.Views
                 CategoriesCombobox.Items.Add(categories[i]);
             }
         }
-        private void ProfitSubmit_Click(object sender, RoutedEventArgs e)
+        private void WasteSubmit_Click(object sender, RoutedEventArgs e)
         {
             if (AmountTextBox.Text != "")
             {
                 if (CategoriesCombobox.SelectedIndex > -1)
                 {
                     int Amount = Convert.ToInt32(AmountTextBox.Text);
+                    Amount *= -1;
                     string category = CategoriesCombobox.SelectedIndex.ToString();
                     string desc = DescriptionVar.Text.ToString();
                     Classes.Posts post = new Classes.Posts();

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WalletProjekt.Classes;
+using System.Text.RegularExpressions;
 using System.Threading;
 
 namespace WalletProjekt.Views
@@ -32,11 +33,18 @@ namespace WalletProjekt.Views
 
 
         }
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            for (int i = 1; i <= 28 ; i++)
+            {
+                SalaryDayCombobox.Items.Add(i.ToString());
+            }
+        }
         private void GetUser()
         {
             user = ((MainWindow)App.Current.MainWindow).GetUserData();
         }
-        private void FillProfile()
+        public void FillProfile()
         {
             FirstNameVar.Text = user.firstName;
             LastNameVar.Text = user.lastName;
@@ -47,5 +55,34 @@ namespace WalletProjekt.Views
 
 
         }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        private void WordsValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[A-Za-z]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            Info.Visibility = Visibility.Hidden;
+            InfoChange.Visibility = Visibility.Visible;
+        }
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            string firstNameChanged = firstNameVarChang.Text;
+            string lastNameChanged = lastNameVarChang.Text;
+            float SalaryAmount = float.Parse(MonthSalaryAmountVarChange.Text);
+            int SalaryDay = Convert.ToInt32(SalaryDayCombobox.SelectedIndex);
+            /// Save Changes to Database
+            user.UpdateProfileDatabase(firstNameChanged,lastNameChanged, SalaryAmount, SalaryDay, user.email);
+            InfoChange.Visibility = Visibility.Hidden;
+            Info.Visibility = Visibility.Visible;
+            
+        }
+
+        
     }
 }

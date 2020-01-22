@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WalletProjekt.Interfaces;
+using WalletProjekt.Views;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
@@ -11,6 +12,7 @@ namespace WalletProjekt.Classes
 {
     class Posts : IPosts
     {
+        UserData user;
         private readonly string  conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
         List<Posts> ListPosts = new List<Posts>();
         public float amount { get; set; }
@@ -42,6 +44,7 @@ namespace WalletProjekt.Classes
                     int result = comm.ExecuteNonQuery();
                     if (result != -1)
                     {
+                        user.UpdateBalance(_amount, email);
                         return true;
                     }
                     else
@@ -50,8 +53,11 @@ namespace WalletProjekt.Classes
                 
             }
         }
+        
         public void ReadTenPosts(int page)
         {
+            //Views.Profile profil = new Views.Profile();
+            //profil.FillProfile();
             //ListPosts.Clear();
             //int OFFSET = page * 10;
             //    comm.CommandText = "INSERT INTO posts";

@@ -18,6 +18,8 @@ namespace WalletProjekt.Interfaces
         float SalaryAmount { get; set; }
 
         float GetBalance();
+        bool UpdateProfileDatabase(string firstN, string lastN, float SalaryA, int SalaryD, string email);
+        bool UpdateBalance(int amount, string email);
 
     }
 }

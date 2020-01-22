@@ -20,7 +20,7 @@
             </ComboBox>
             <TextBlock Text="Description" HorizontalAlignment="Center" Margin="0 10 0 10" />
             <TextBox x:Name="DescriptionVar" Margin="0 0 0 15" HorizontalAlignment="Center" Width="200"/>
-            <Button x:Name="ProfitSubmit" Width="130" Content="Submit" Foreground="White" FontSize="20" Height="40" Click="ProfitSubmit_Click"/>
+            <Button x:Name="WasteSubmit" Width="130" Content="Submit" Foreground="White" FontSize="20" Height="40" Click="WasteSubmit_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>
