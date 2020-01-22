@@ -12,7 +12,6 @@ namespace WalletProjekt
         string _password { get; set; }
         string _firstName { get; set; }
         string _lastName { get; set; }
-
         int AddUserToDatabase();
     }
 }

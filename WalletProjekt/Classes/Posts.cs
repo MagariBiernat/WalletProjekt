@@ -12,9 +12,8 @@ namespace WalletProjekt.Classes
 {
     class Posts : IPosts
     {
-        UserData user;
+        UserData user = new UserData();
         private readonly string  conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
-        List<Posts> ListPosts = new List<Posts>();
         public float amount { get; set; }
         public string category { get; set; }
         public string type { get; set; }
@@ -25,17 +24,17 @@ namespace WalletProjekt.Classes
         private string postsDbName { get; set; }
 
 
-        public bool AddNewPost(int _amount, string _category, string _desc, string email)
+        public bool AddNewPost(int _amount, string _category,string profit, string _desc, string email ,int Id)
         {
             datetime = DateTime.Now;
             SqlCommand comm = new SqlCommand();
             using(SqlConnection myCon = new SqlConnection(conn))
             using(myCon)
             {
-                comm.CommandText = "INSERT INTO "+email+"PostsDatabase (amount , category , datetime, description) VALUES (@amount, @category, @datetime , @desc)";
+                comm.CommandText = "INSERT INTO PostsDatabase"+Id.ToString()+" (amount , category , datetime, description) VALUES (@amount, @category, @datetime , @desc)";
                 comm.Parameters.AddWithValue("@amount", _amount);
                 comm.Parameters.AddWithValue("@category", _category);
-                comm.Parameters.AddWithValue("@datetime", datetime);
+                comm.Parameters.Add("@datetime", System.Data.SqlDbType.Date).Value = datetime;
                 comm.Parameters.AddWithValue("@desc", _desc);
                 using(comm)
                 {
@@ -54,23 +53,12 @@ namespace WalletProjekt.Classes
             }
         }
         
-        public void ReadTenPosts(int page)
-        {
-            //Views.Profile profil = new Views.Profile();
-            //profil.FillProfile();
-            //ListPosts.Clear();
-            //int OFFSET = page * 10;
-            //    comm.CommandText = "INSERT INTO posts";
-            //    //
-            //    return true;
-            //}
 
-        }
-        public float ReadLastMonth()
+        public float ReadLastMonth(int Id)
         {
             DateTime ThirtyDaysAgo = DateTime.Now.AddDays(-30);
             float lastMonthBalance = 0;
-            postsDbName = useremail+"PostsDatabase";
+            postsDbName = "PostsDatabase"+Id.ToString();
             SqlCommand command = new SqlCommand();
             using(SqlConnection myCon = new SqlConnection(conn))
             using(myCon)
@@ -78,7 +66,7 @@ namespace WalletProjekt.Classes
                 //command.CommandText = "SELECT * FROM " + useremail + "PostsDatabase ORDER BY datetime DESC LIMIT 10 OFFSET @OFFSET";
 
                 //command.Parameters.AddWithValue("@OFFSET", OFFSET);
-                command.CommandText = "SELECT amount,category  FROM " + postsDbName + " where datetime > @ago";
+                command.CommandText = "SELECT amount,profit  FROM " + postsDbName + " where datetime > @ago";
                 command.Parameters.AddWithValue("@ago", ThirtyDaysAgo);
                 using(command)
                 {
@@ -90,22 +78,15 @@ namespace WalletProjekt.Classes
                     {
                         while(reader.Read())
                         {
-                            ListPosts.Add(new Posts()
+                            
+                            if (reader["profit"].ToString() == "yes")
                             {
-                                amount = Convert.ToInt32(reader["amount"]),
-                                category = reader["category"].ToString(),
-                                //datetime = Convert.ToDateTime(reader["datetime"]),
-                                //desc = reader["desc"].ToString(),
-                                //postId = Convert.ToInt32(reader["Id"])
-                            });
-                            if (reader["category"].ToString() == "profit")
-                            {
-                                int i = Convert.ToInt32(reader["amount"]);
+                                float i = float.Parse(reader["amount"].ToString());
                                 lastMonthBalance += Convert.ToSingle(i);
                             }
                             else
                             {
-                                int i = Convert.ToInt32(reader["amount"]);
+                                float i = float.Parse(reader["amount"].ToString());
                                 lastMonthBalance -= Convert.ToSingle(i);
                             }
                         }
@@ -119,10 +100,11 @@ namespace WalletProjekt.Classes
         public bool DeletePost(int Id)
         {
             SqlCommand command = new SqlCommand();
-            using(SqlConnection myCon = new SqlConnection(conn))
+            postsDbName = "PostsDatabase" + Id.ToString();
+            using (SqlConnection myCon = new SqlConnection(conn))
             using(myCon)
             {
-                command.CommandText = "DELETE FROM " + useremail + "PostsDatabase WHERE Id = @Id";
+                command.CommandText = "DELETE FROM " + postsDbName + " WHERE Id = @Id";
                 command.Parameters.AddWithValue("@Id", Id);
                 using(command)
                 {

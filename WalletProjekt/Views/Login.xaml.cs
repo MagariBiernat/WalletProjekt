@@ -63,6 +63,7 @@ namespace WalletProjekt.Views
         }
         private void ReceiveAllDataFromDatabase(string email)
         {
+            int userId = 0;
             string firstName = String.Empty;
             string lastName = String.Empty;
             string dataa = String.Empty;
@@ -74,7 +75,7 @@ namespace WalletProjekt.Views
             using(SqlConnection myCon = new SqlConnection(conn))
             using (myCon)
             {
-                command.CommandText = "SELECT firstName, lastName, date_created, date_last_login, balance, monthly_salary, dayofmonth_salary from Users where email = @email";
+                command.CommandText = "SELECT Id,firstName, lastName, date_created, date_last_login, balance, monthly_salary, dayofmonth_salary from Users where email = @email";
                 command.Parameters.AddWithValue("@email", email);
                 using(command)
                 {
@@ -85,6 +86,7 @@ namespace WalletProjekt.Views
                     {
                         while (reader.Read())
                         {
+                            userId = Convert.ToInt32(reader["Id"]);
                             firstName = reader["firstName"].ToString();
                             lastName = reader["lastName"].ToString();
                             dataa = reader["date_created"].ToString();
@@ -96,9 +98,10 @@ namespace WalletProjekt.Views
                             {
                                 lastlogin = DateTime.Now.ToShortDateString();
                             }
-                            
+
                             UserData user = new UserData()
                             {
+                                userId = userId,
                                 firstName = firstName,
                                 lastName = lastName,
                                 email = email,

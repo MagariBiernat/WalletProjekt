@@ -47,7 +47,7 @@ namespace WalletProjekt.Classes
                     if (ExecuteReturnValue >= 0)
                     {
                         Added = true;
-                        CreatePostsDatabase();
+                        CreatePostsDatabase(ReturnNewUserId());
                         return 1;
                     }
 
@@ -58,18 +58,52 @@ namespace WalletProjekt.Classes
 
             }
         }
-        // Create a table for user for his posts.
-        public void CreatePostsDatabase()
+        private int ReturnNewUserId()
         {
-            string userName = _email + "PostsDatabase";
+            int userId = 0 ;
             SqlCommand comm = new SqlCommand();
             using (SqlConnection myCon = new SqlConnection(conn))
             using (myCon)
             {
-                comm.CommandText = "CREATE TABLE [dbo].[" + userName + "]" +
+                comm.CommandText = "SELECT Id FROM Users WHERE email = @email";
+                comm.Parameters.AddWithValue("@email", _email);
+
+                using (comm)
+                {
+                    myCon.Open();
+                    comm.Connection = myCon;
+                    SqlDataReader reader = comm.ExecuteReader();
+
+                    if(reader.HasRows)
+                    {
+                        while(reader.Read())
+                        {
+                            userId = Convert.ToInt32(reader["Id"]);
+                            break;
+                        }
+
+                    }
+                    if (userId == 0)
+                        throw new Exception();
+                    else
+                        return userId;
+                    
+                }
+            }
+        }
+        // Create a table for user for his posts.
+        public void CreatePostsDatabase(int Id)
+        {
+            string databasename = "PostsDatabase" + Id.ToString(); ;
+            SqlCommand comm = new SqlCommand();
+            using (SqlConnection myCon = new SqlConnection(conn))
+            using (myCon)
+            {
+                comm.CommandText = "CREATE TABLE [dbo].['" + databasename + "']" +
                                     "([Id] INT IDENTITY (1, 1) NOT NULL," +
                                     "[amount] FLOAT NOT NULL," +
                                     "[category] NVARCHAR(50) NOT NULL," +
+                                    "[profit]    NVARCHAR (15)  NOT NULL,"+
                                     "[datetime] DATETIME2 NOT NULL," +
                                     "[description]     NVARCHAR (255) NOT NULL DEFAULT 'brak', PRIMARY KEY CLUSTERED([Id] ASC)";
                 using (comm)

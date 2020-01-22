@@ -12,6 +12,7 @@ namespace WalletProjekt.Classes
     public class UserData : IUserData
     {
         private readonly string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
+        public int userId {get;set;}
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string email { get; set; }

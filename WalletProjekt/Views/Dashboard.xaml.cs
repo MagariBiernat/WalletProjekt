@@ -44,7 +44,7 @@ namespace WalletProjekt.Views
         {
             Classes.Posts Last30Days = new Classes.Posts();
             Last30Days.useremail = user.email;
-            float balance = Last30Days.ReadLastMonth();
+            float balance = Last30Days.ReadLastMonth(user.userId);
 
             LastMonthBalanceVar.Text = balance.ToString();
         }
@@ -52,7 +52,7 @@ namespace WalletProjekt.Views
         {
             Classes.Posts Last30DaysToAverage = new Classes.Posts();
             Last30DaysToAverage.useremail = user.email;
-            float balance = Last30DaysToAverage.ReadLastMonth();
+            float balance = Last30DaysToAverage.ReadLastMonth(user.userId);
             AverageDailyVar.Text = (balance / 30).ToString();
         }
 
