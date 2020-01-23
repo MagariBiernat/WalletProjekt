@@ -53,11 +53,12 @@ namespace WalletProjekt.Views
                 {
                     int Amount = Convert.ToInt32(AmountTextBox.Text);
                     Amount *= -1;
-                    string category = CategoriesCombobox.SelectedIndex.ToString();
+                    
+                    string category = CategoriesCombobox.SelectedValue.ToString();
                     string desc = DescriptionVar.Text.ToString();
                     Classes.Posts post = new Classes.Posts();
 
-                    bool result = post.AddNewPost(Amount, category, desc, user.email, user.userId);
+                    bool result = post.AddNewPost(Amount, category, "no", desc, user.email, user.userId);
                     if (result)
                     {
                         MessageBox.Show("Post has been added.");

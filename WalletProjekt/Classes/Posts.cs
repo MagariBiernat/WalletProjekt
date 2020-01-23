@@ -24,16 +24,17 @@ namespace WalletProjekt.Classes
         private string postsDbName { get; set; }
 
 
-        public bool AddNewPost(int _amount, string _category,string profit, string _desc, string email ,int Id)
+        public bool AddNewPost(int _amount, string _category,string _profit, string _desc, string email ,int Id)
         {
             datetime = DateTime.Now;
             SqlCommand comm = new SqlCommand();
             using(SqlConnection myCon = new SqlConnection(conn))
             using(myCon)
             {
-                comm.CommandText = "INSERT INTO PostsDatabase"+Id.ToString()+" (amount , category , datetime, description) VALUES (@amount, @category, @datetime , @desc)";
+                comm.CommandText = "INSERT INTO PostsDatabase"+Id.ToString()+" (amount , category , profit, datetime, description) VALUES (@amount, @category, @profit, @datetime , @desc)";
                 comm.Parameters.AddWithValue("@amount", _amount);
                 comm.Parameters.AddWithValue("@category", _category);
+                comm.Parameters.AddWithValue("@profit", _profit);
                 comm.Parameters.Add("@datetime", System.Data.SqlDbType.Date).Value = datetime;
                 comm.Parameters.AddWithValue("@desc", _desc);
                 using(comm)

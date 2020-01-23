@@ -16,6 +16,7 @@ using WalletProjekt.Classes;
 using System.Threading;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace WalletProjekt.Views
 {
@@ -25,11 +26,13 @@ namespace WalletProjekt.Views
     public partial class Posts : UserControl
     {
         UserData user;
+        private string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
         // ??? int num = 0;
         public Posts()
         {
             GetUser();
             InitializeComponent();
+            DisplayTenPosts(1);
         }
         private void GetUser()
         {
@@ -37,21 +40,25 @@ namespace WalletProjekt.Views
         }
         private void DisplayTenPosts(int page)
         {
-            string email = user.email+"PostsDatabase";
+            string dbname = "PostsDatabase"+user.userId.ToString();
             page = Convert.ToInt32(PageNumber.Text);
             page *= 10;
             SqlCommand comm = new SqlCommand();
-            using(SqlConnection myCon = new SqlConnection())
+            using(SqlConnection myCon = new SqlConnection(conn))
             using(myCon)
             {
-                if (page == 1)
+                if (PageNumber.Text == "1")
                 {
-                    comm.CommandText = "SELECT Id, amount, category,datetime,description FROM ";
+                    comm.CommandText = "SELECT TOP 10 Id, amount, category, profit,datetime,description FROM " + dbname+" ORDER BY datetime DESC ";
                 }
                 else
-                    comm.CommandText = "SELECT Id, amount, category,datetime,description FROM";
-
-
+                    comm.CommandText = "SELECT Id, amount, category,profit, datetime,description FROM " + dbname + " ORDER BY datetime DESC OFFSET "+page+" ROWS FETCH NEXT 10 ROWS ONLY";
+                myCon.Open();
+                comm.Connection = myCon;
+                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                DataTable dt = new DataTable(dbname);
+                adapter.Fill(dt);
+                PostsData.ItemsSource = dt.DefaultView;
             }
         }
 

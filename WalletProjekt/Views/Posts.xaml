@@ -24,7 +24,7 @@
                     <Button x:Name="PreviousPageButton" FontFamily="Marlett" FontSize="35" Foreground="Black" Content="3" Height="40" Width="70" Grid.Column="0" Click="PreviousPageButton_Click" />
 
                     <materialDesign:Card Height="40" Width="70" Grid.Column="1">
-                        <TextBlock x:Name="PageNumber" Text="" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="23"/>
+                        <TextBlock x:Name="PageNumber" Text="1" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="23"/>
 
                     </materialDesign:Card>
 
@@ -49,7 +49,7 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding category}" Width="100" MaxWidth="90" Header="Category">
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding category}" Width="110" MaxWidth="110" Header="Category">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style>
                                         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -57,7 +57,7 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding data}" Width="140" MaxWidth="130" Header="DateTime">
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding datetime}" Width="180" MaxWidth="180" Header="DateTime">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style>
                                         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -65,7 +65,7 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding amount}" Width="90" MaxWidth="80" Header="Amount">
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding amount}" Width="90" MaxWidth="90" Header="Amount">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style>
                                         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -73,7 +73,7 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTemplateColumn x:Name="More" Width="60" >
+                            <!--<DataGridTemplateColumn x:Name="More" Width="60" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Width="60" Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black"  >
@@ -85,9 +85,9 @@
                                             </Button.ContextMenu>
                                         </Button>
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn.CellTemplate>-->
 
-                            </DataGridTemplateColumn>
+                            <!--</DataGridTemplateColumn>-->
 
                         </DataGrid.Columns>
                     </DataGrid>
