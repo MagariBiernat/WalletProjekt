@@ -13,7 +13,7 @@
 
         <Grid x:Name="ContextView">
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/bg.png"/>
+            <ImageBrush ImageSource="/Images/background.png"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />

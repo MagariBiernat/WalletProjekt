@@ -9,9 +9,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="385" d:DesignWidth="400">
 
-    
+
     <Grid>
-    
+
         <StackPanel x:Name="PostsStackPanel" Width="370" >
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -21,35 +21,37 @@
                 </Grid.ColumnDefinitions>
 
 
-                    <Button x:Name="PreviousPageButton" FontFamily="Marlett" FontSize="35" Foreground="Black" Content="3" Height="40" Width="70" Grid.Column="0" Click="PreviousPageButton_Click" />
 
-                    <materialDesign:Card Height="40" Width="70" Grid.Column="1">
-                        <TextBlock x:Name="PageNumber" Text="1" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="23"/>
+                <Button x:Name="PreviousPageButton" BorderThickness="0"  Background="#322d42" FontFamily="Marlett" FontSize="35" Foreground="white" Content="3" Height="40" Grid.Column="0" Click="PreviousPageButton_Click" />
 
-                    </materialDesign:Card>
+                <materialDesign:Card Height="40" Width="70" Grid.Column="1">
+                    <TextBlock x:Name="PageNumber" Text="1" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="23"/>
+
+                </materialDesign:Card>
 
 
-                    <Button x:Name="NextPageButton" Grid.Column="2" FontFamily="Marlett" FontSize="35" Foreground="Black" Content="4" Height="40" Width="70" Click="NextPageButton_Click"/>
+                <Button x:Name="NextPageButton"  Grid.Column="2" Foreground="White" Background="#322d42" BorderThickness="0" FontFamily="Marlett" FontSize="35" Content="4" Height="40" Width="70" Click="NextPageButton_Click"/>
 
             </Grid>
-            
+
             <ScrollViewer Height="330" VerticalScrollBarVisibility="Auto">
 
                 <Grid Margin="0 5 0 0">
 
-                    <DataGrid x:Name="PostsData" Background="Transparent" IsReadOnly="True" HorizontalGridLinesBrush="Transparent" SelectionMode="Single"  AutoGenerateColumns="False"  >
+                    <DataGrid x:Name="PostsData" Background="Transparent" Foreground="White" IsReadOnly="True" HorizontalGridLinesBrush="Transparent" SelectionMode="Single"  AutoGenerateColumns="False"  >
 
                         <DataGrid.Columns>
 
-                            <DataGridTextColumn Visibility="Hidden" IsReadOnly="True" Binding="{Binding Id}" Width="0" MaxWidth="0">
+                            <DataGridTextColumn Visibility="Hidden" Foreground="LightGray" IsReadOnly="True" Binding="{Binding Id}" Width="0" MaxWidth="0">
                                 <DataGridTextColumn.ElementStyle>
-                                    <Style>
+                                    <Style >
                                         <Setter Property="TextBlock.TextWrapping" Value="NoWrap" />
+                                        <Setter Property="TextBlock.Foreground" Value="White" />
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding category}" Width="110" MaxWidth="110" Header="Category">
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding category}" Width="100" MaxWidth="100" Header="Category">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style>
                                         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -57,7 +59,7 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding datetime}" Width="180" MaxWidth="180" Header="DateTime">
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding datetime}" Width="170" MaxWidth="170" Header="DateTime">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style>
                                         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />

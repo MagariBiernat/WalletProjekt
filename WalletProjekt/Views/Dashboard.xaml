@@ -12,17 +12,17 @@
         <ScrollViewer Height="385" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Visible">
             <Grid Width="380"  Height="385" Background="Transparent">
                 <StackPanel>
-                    <Grid x:Name="LastMonthBalance" Height="100" Background="AntiqueWhite">
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBlock Text="Last 30 days = "  FontSize="25" />
-                            <TextBlock x:Name="LastMonthBalanceVar" Text=""  FontSize="25" />
+                    <Grid x:Name="LastMonthBalance" Height="100">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock Text="Last 30 days " HorizontalAlignment="Center" FontSize="20" Foreground="LightGray"/>
+                            <TextBlock x:Name="LastMonthBalanceVar" HorizontalAlignment="Center" Text="" Foreground="White"  FontSize="25" />
                         </StackPanel>
 
                     </Grid>
-                    <Grid x:Name="bb" Height="100" Background="AliceBlue">
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBlock Text="Average daily income = "  FontSize="25" />
-                            <TextBlock x:Name="AverageDailyVar" Text=""  FontSize="25" />
+                    <Grid x:Name="bb" Height="100">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock Text="Average daily income" HorizontalAlignment="Center" FontSize="20" Foreground="LightGray" />
+                            <TextBlock x:Name="AverageDailyVar" HorizontalAlignment="Center" Text="" Foreground="White" FontSize="25" />
                         </StackPanel>
 
                     </Grid>

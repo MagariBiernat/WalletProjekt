@@ -8,48 +8,44 @@
              xmlns:viewmodels="clr-namespace:WalletProjekt.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="660" d:DesignWidth="400" Foreground="Black">
+             d:DesignHeight="700" d:DesignWidth="400" Foreground="Black">
     <Grid >
-        <Grid Height="660" Width="400" Margin="0,20,0,70">
+        <Grid Height="700" Width="400" Margin="0,0,0,70">
             <StackPanel>
 
-                
-                    <TextBlock FontSize="58" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Text="Sign Up"   >
-                        <TextBlock.Effect>
-                            <DropShadowEffect BlurRadius="15"
-                              Opacity=".4"
-                              ShadowDepth="2" />
-                        </TextBlock.Effect>
+
+                <TextBlock Margin="0, 0, 0, 50" FontSize="50" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Text="Sign Up"  FontFamily="Arial"   >
+                       
                     </TextBlock>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 60 0 20">
-
-                    <Border CornerRadius="10" Background="white" Width="160" Height="50" Margin="0 0 20 0">
-                        
-                        <Button x:Name="RegisterButtonFinish" Content="Register" Click="RegisterButtonFinish_Click"  Background="{x:Null}" BorderThickness="0" Foreground="Black" >
-                            
-                        </Button>
-                    </Border>
-                        <Border CornerRadius="10" Background="white" Width="160" Height="50" >
-                            <Button x:Name="BackFromRegistrationForm" Content="Go back" Click="BackFromRegistrationForm_Click" Background="Transparent" BorderThickness="0" Foreground="Black"/>
-                        </Border>
-                    </StackPanel>
+                    
                     <!--Return to login form-->
 
-                <StackPanel Width="300" Height="400">
-                    <TextBox x:Name="FirstNameVar" materialDesign:HintAssist.Hint="First Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5 "/>
+                <StackPanel Width="300" Height="320" >
+                    <TextBox x:Name="FirstNameVar" Foreground="White"  materialDesign:HintAssist.Hint="First Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5 "/>
 
-                    <TextBox x:Name="LastNameVar" Text="" materialDesign:HintAssist.Hint="Last Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
+                    <TextBox x:Name="LastNameVar" Foreground="White"  Text="" materialDesign:HintAssist.Hint="Last Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
 
-                    <TextBox x:Name="EmailVar" materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
+                    <TextBox x:Name="EmailVar" Foreground="White"  materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
 
-                    <PasswordBox x:Name="FirstPassword" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
+                    <PasswordBox x:Name="FirstPassword" Foreground="White"  materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
 
-                    <PasswordBox x:Name="SecondPassword" materialDesign:HintAssist.Hint="Confirm Your Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"  Margin="0 5"/>
-                    <CheckBox x:Name="TermsCheckBox" IsThreeState="False" IsChecked="False" Content="I agree to the terms of service" Margin="0 15 0 0" />
-                    <CheckBox x:Name="PizzaCheckBoxRegistrationForm" IsThreeState="False" IsChecked="False" Content="Free Pizza? Check if yes!" Margin="0 5" Checked="PizzaCheckBoxRegistrationForm_Checked"/>
+                    <PasswordBox x:Name="SecondPassword" Foreground="White" materialDesign:HintAssist.Hint="Confirm Your Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"  Margin="0 5"/>
+                    <CheckBox x:Name="TermsCheckBox" Foreground="gray"  IsThreeState="False" IsChecked="False" Content="I agree to the terms of service" Margin="0 15 0 0" />
+                    <CheckBox x:Name="PizzaCheckBoxRegistrationForm" Foreground="gray"  IsThreeState="False" IsChecked="False" Content="Free Pizza? Check if yes!" Margin="0 5" Checked="PizzaCheckBoxRegistrationForm_Checked"/>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 20">
 
+                    <Border CornerRadius="10" Background="#f17597" Width="160" Height="50" Margin="0 0 20 0">
+
+                        <Button x:Name="RegisterButtonFinish" Content="Register" Click="RegisterButtonFinish_Click"  Background="{x:Null}" BorderThickness="0" Foreground="white" >
+
+                        </Button>
+                    </Border>
+                    <Border CornerRadius="10" Background="white" Width="160" Height="50" >
+                        <Button x:Name="BackFromRegistrationForm" Content="Go back" Click="BackFromRegistrationForm_Click" Background="Transparent" BorderThickness="0" Foreground="Black"/>
+                    </Border>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </Grid>

@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:WalletProjekt"
         xmlns:views="clr-namespace:WalletProjekt.Views"
         xmlns:viewmodels="clr-namespace:WalletProjekt.ViewModels"
-        mc:Ignorable="d" Height="660" Width="400" Cursor="Arrow" 
+        mc:Ignorable="d" Height="680" Width="400" Cursor="Arrow" 
         FontFamily="Microsoft Sans Serif"
       Loaded="Page_Loaded">
 
@@ -32,7 +32,7 @@
         </DataTemplate>
     </Page.Resources>
     <!--Main Menu here-->
-    <Grid x:Name="ContextView" Height="660" Width="400" Margin="0 0 0 0" >
+    <Grid x:Name="ContextView" Height="680" Width="400" Margin="0 0 0 0" >
 
         <Grid.RowDefinitions>
             <RowDefinition Height="225"/>
@@ -41,16 +41,23 @@
         </Grid.RowDefinitions>
 
         <Grid  Grid.Row="0">
-
-            <TextBlock x:Name="BalanceVar" FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Text="3.519 zł" Margin="128,40,128,109" >
+            <TextBlock FontSize="13" HorizontalAlignment="Center" Foreground="white" Opacity="0.4" FontFamily="Arial" Text="Total Balance" Margin="128,0,128,0" >
+            </TextBlock>
+            <TextBlock x:Name="BalanceVar" FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" FontFamily="Batang" Text="3.519 zł" Margin="128,20,128,92" >
 
             </TextBlock>
-            <StackPanel Height="55" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 170 0 0" >
+            <StackPanel Height="55" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 150 0 0" >
 
                 <Border CornerRadius="10" Background="white" Width="160" Height="50" Margin="0 0 20 0">
+                    <Border.Effect>
+                        <DropShadowEffect Opacity=".2"/>
+                    </Border.Effect>
                     <Button x:Name="Plus"  Background="Transparent" BorderThickness="0" Foreground="Black" Content="Profit" Click="Plus_Click" />
                 </Border>
                 <Border CornerRadius="10" Background="white" Width="160" Height="50" >
+                    <Border.Effect>
+                        <DropShadowEffect Opacity=".2"/>
+                    </Border.Effect>
                     <Button x:Name="Minus" Background="Transparent" BorderThickness="0" Foreground="Black" Content="Loss" Click="Minus_Click" />
                 </Border>
             </StackPanel>
@@ -62,19 +69,19 @@
         <Grid x:Name="MenuBar" Grid.Row="2" VerticalAlignment="Bottom" Margin="0 0 0 0" HorizontalAlignment="Center" Height="60">
             <StackPanel Orientation="Horizontal" Width="400" Height="60">
                 <Button x:Name="Home" Width="100"    
-                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="ButtonHome_Click" >
+                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="ButtonHome_Click" >
                     <materialDesign:PackIcon Kind="Home" Height="30" Width="30"/>
                 </Button>
                 <Button x:Name="Posts" Width="100"    
-                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="Posts_Click" >
+                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="Posts_Click" >
                     <materialDesign:PackIcon Kind="Assignment" Height="30" Width="30"/>
                 </Button>
                 <Button x:Name="Statistics" Width="100"    
-                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="Statistics_Click" >
+                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="Statistics_Click" >
                     <materialDesign:PackIcon Kind="Equalizer" Height="30" Width="30"/>
                 </Button>
                 <Button x:Name="Profile" Width="100"    
-                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="Profile_Click" >
+                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="Profile_Click" >
                     <materialDesign:PackIcon Kind="PermIdentity" Height="30" Width="30"/>
                 </Button>
             </StackPanel>

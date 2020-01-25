@@ -41,7 +41,7 @@
                 <Border.Effect>
                     <DropShadowEffect Color="#FF1F2CB4" Opacity="0.15" RenderingBias="Quality" ShadowDepth="8"/>
                 </Border.Effect>
-                <Grid x:Name="CenterView"  HorizontalAlignment="Center" Width="400" Height="660" Background="Transparent" >
+                <Grid x:Name="CenterView"  HorizontalAlignment="Center" Width="400" Height="680" Background="Transparent" >
                     <ContentControl x:Name="LoginRegisterView" Content="{Binding}" />
                 </Grid>
             </Border>

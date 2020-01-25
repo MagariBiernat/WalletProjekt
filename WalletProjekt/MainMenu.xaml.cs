@@ -40,7 +40,7 @@ namespace WalletProjekt
         public void ReadBalance()
         {
             float balance = user.GetBalance();
-            BalanceVar.Text = balance.ToString() + " zl ";
+            BalanceVar.Text = balance.ToString();
         }
 
         private void ButtonHome_Click(object sender, RoutedEventArgs e)
