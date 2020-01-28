@@ -8,13 +8,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="680" d:DesignWidth="400" Foreground="Black" >
     <Grid>
-        <Grid Height="680" Width="400" Margin="0,0,0,70">
+        <Grid Height="680" Width="400" Margin="0,0,0,0">
             <StackPanel>
-
-                <TextBlock Margin="0, 0, 0, 50" FontSize="58" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Text="Login" FontFamily="Arial" >
-                   
+                <TextBlock FontSize="13" HorizontalAlignment="Center" Foreground="white" Opacity="0.4" FontFamily="Arial" Text="Welcome in your wallet" Margin="128,0,128,0" >
                 </TextBlock>
-              
+                <TextBlock  FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" FontFamily="Batang" Text="Login" Margin="128,20,128,92" >
+
+                </TextBlock>
 
                 <StackPanel Width="300">
                     <TextBox x:Name="LoginVar" Foreground="white" materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 30 0 10" />

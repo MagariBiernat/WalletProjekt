@@ -211,7 +211,6 @@
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Resource Include="Images\background.png" />
-    <Resource Include="Images\bgo.png" />
     <Resource Include="Images\bg.png" />
     <Resource Include="Images\undraw_Savings_dwkw.png" />
     <Resource Include="Images\undraw_wallet_aym5.png" />

@@ -62,5 +62,10 @@ namespace WalletProjekt.Views
                     MessageBox.Show("An error occured.");   
             }
         }
+
+        private void AmountTextBox_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
+        {
+
+        }
     }
 }

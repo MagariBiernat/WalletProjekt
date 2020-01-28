@@ -13,28 +13,14 @@
     <Grid>
 
         <StackPanel x:Name="PostsStackPanel" Width="370" >
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70"/>
-                    <ColumnDefinition Width="230"/>
-                    <ColumnDefinition Width="70"/>
-                </Grid.ColumnDefinitions>
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Opacity=".7">
+                <TextBlock Text="__________________  " Foreground="Gray" Margin="0 -4 0 0" Opacity=".5"/>
+                <TextBlock Text="Posts" Foreground="Gray" />
+                <TextBlock Text="  __________________" Foreground="Gray" Margin="0 -4 0 0" Opacity=".5" />
+            </StackPanel>
 
 
-
-                <Button x:Name="PreviousPageButton" BorderThickness="0"  Background="#322d42" FontFamily="Marlett" FontSize="35" Foreground="white" Content="3" Height="40" Grid.Column="0" Click="PreviousPageButton_Click" />
-
-                <materialDesign:Card Height="40" Width="70" Grid.Column="1">
-                    <TextBlock x:Name="PageNumber" Text="1" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="23"/>
-
-                </materialDesign:Card>
-
-
-                <Button x:Name="NextPageButton"  Grid.Column="2" Foreground="White" Background="#322d42" BorderThickness="0" FontFamily="Marlett" FontSize="35" Content="4" Height="40" Width="70" Click="NextPageButton_Click"/>
-
-            </Grid>
-
-            <ScrollViewer Height="330" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer Height="310" VerticalScrollBarVisibility="Auto">
 
                 <Grid Margin="0 5 0 0">
 
@@ -50,8 +36,8 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-
-                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding category}" Width="100" MaxWidth="100" Header="Category">
+        
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding category}" Width="100" MaxWidth="100" Foreground="white">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style>
                                         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -59,7 +45,7 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding datetime}" Width="170" MaxWidth="170" Header="DateTime">
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding datetime}" Width="170" MaxWidth="170">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style>
                                         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -67,9 +53,12 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding amount}" Width="90" MaxWidth="90" Header="Amount">
+                           
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding amount}" Width="90" MaxWidth="90"  >
+
                                 <DataGridTextColumn.ElementStyle>
                                     <Style>
+                                        <Setter Property="TextBlock.HorizontalAlignment" Value="Right" />
                                         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
@@ -95,10 +84,30 @@
                     </DataGrid>
 
 
-
+                    
                 </Grid>
 
             </ScrollViewer>
+            <Grid VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="230"/>
+                    <ColumnDefinition Width="70"/>
+                </Grid.ColumnDefinitions>
+
+
+
+                <Button x:Name="PreviousPageButton" BorderThickness="0" Opacity=".5" Background="#322d42" FontFamily="Marlett" FontSize="15" Foreground="white" Content="3" Height="22" Width="50" Grid.Column="0" Click="PreviousPageButton_Click" />
+
+                <materialDesign:Card Height="33" Width="40" Grid.Column="1" Background="#322d42">
+                    <TextBlock x:Name="PageNumber" Text="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="white"  FontSize="16"/>
+
+                </materialDesign:Card>
+
+
+                <Button x:Name="NextPageButton"  Grid.Column="2" Foreground="White" Opacity=".5" Background="#322d42" BorderThickness="0" FontFamily="Marlett" FontSize="15" Content="4" Height="22" Width="50" Click="NextPageButton_Click"/>
+
+            </Grid>
         </StackPanel>
     </Grid>
 </UserControl>

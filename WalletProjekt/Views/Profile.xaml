@@ -10,7 +10,11 @@
              Loaded="UserControl_Loaded">
     <Grid>
         <StackPanel>
-            
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Opacity=".7">
+                <TextBlock Text="__________________  " Foreground="Gray" Margin="0 -4 0 0" Opacity=".5"/>
+                <TextBlock Text="Profile" Foreground="Gray" />
+                <TextBlock Text="  __________________" Foreground="Gray" Margin="0 -4 0 0" Opacity=".5" />
+            </StackPanel>
             <!--user's info-->
 
             <Grid x:Name="Info" Height="350" Visibility="Visible" Margin="40px 10px">

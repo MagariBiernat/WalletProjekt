@@ -9,14 +9,13 @@
              d:DesignHeight="385" d:DesignWidth="400"
              Loaded="UserControl_Loaded">
     <Grid>
-        <StackPanel Margin="0 15 0 0" Width="350">
-            <TextBlock Text="Your new income." VerticalAlignment="Top" HorizontalAlignment="Center"
-                           FontSize="35"/>
-            <TextBlock Text="Amount : " Margin="0 10 0 0" HorizontalAlignment="Center"/>
-            <TextBox Name="AmountTextBox" PreviewTextInput="NumberValidationTextBox" Width="100" Margin="0 5 0 10"/>
-            <TextBlock Text="Description" HorizontalAlignment="Center" Margin="0 10 0 10" />
-            <TextBox x:Name="DescriptionVar" Margin="0 0 0 15" HorizontalAlignment="Center" Width="200"/>
-            <Button x:Name="ProfitSubmit" Width="130" Content="Submit" Foreground="White" FontSize="20" Height="40" Click="ProfitSubmit_Click"/>
+        <StackPanel Margin="0 15 0 0" Width="400" HorizontalAlignment="Center">
+            <TextBlock Text="Your new income" VerticalAlignment="Top" HorizontalAlignment="Center"
+                           FontSize="35" Foreground="White"/>
+
+            <TextBox Name="AmountTextBox"  PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="white" materialDesign:HintAssist.Hint="Amount" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 10 0 15" />
+            <TextBox x:Name="DescriptionVar" Foreground="white" materialDesign:HintAssist.Hint="Description" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 0" />
+            <Button x:Name="ProfitSubmit" Width="130" Content="Submit" Foreground="White" FontSize="15" Margin="0 30 0 0" Height="40"  Click="ProfitSubmit_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

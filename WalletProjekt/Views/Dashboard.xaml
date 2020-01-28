@@ -9,9 +9,14 @@
              d:DesignHeight="385" d:DesignWidth="400"
              Loaded="Dashboard_Loaded">
     <Grid>
-        <ScrollViewer Height="385" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Visible">
+        <StackPanel Height="385">
             <Grid Width="380"  Height="385" Background="Transparent">
                 <StackPanel>
+                    <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Opacity=".7">
+                        <TextBlock Text="__________________  " Foreground="Gray" Margin="0 -4 0 0" Opacity=".5"/>
+                        <TextBlock Text="Dashboard" Foreground="Gray" />
+                        <TextBlock Text="  __________________" Foreground="Gray" Margin="0 -4 0 0" Opacity=".5" />
+                    </StackPanel>
                     <Grid x:Name="LastMonthBalance" Height="100">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                             <TextBlock Text="Last 30 days " HorizontalAlignment="Center" FontSize="20" Foreground="LightGray"/>
@@ -37,6 +42,6 @@
                 </StackPanel>
 
             </Grid>
-        </ScrollViewer>
+        </StackPanel>
     </Grid>
 </UserControl>

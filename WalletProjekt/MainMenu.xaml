@@ -46,20 +46,47 @@
             <TextBlock x:Name="BalanceVar" FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" FontFamily="Batang" Text="3.519 zł" Margin="128,20,128,92" >
 
             </TextBlock>
-            <StackPanel Height="55" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 150 0 0" >
+            <StackPanel Height="80" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 100 0 30" >
 
-                <Border CornerRadius="10" Background="white" Width="160" Height="50" Margin="0 0 20 0">
+                <Border CornerRadius="50" Background="Gray" Opacity="0.3" Width="80" Height="80" Margin="0 0 190 0">
                     <Border.Effect>
-                        <DropShadowEffect Opacity=".2"/>
+                        <DropShadowEffect Opacity=".0"/>
                     </Border.Effect>
-                    <Button x:Name="Plus"  Background="Transparent" BorderThickness="0" Foreground="Black" Content="Profit" Click="Plus_Click" />
+                    <Border CornerRadius="50" Background="LightGray" Width="70" Height="70" >
+                        <Border.Effect>
+                            <DropShadowEffect Opacity=".0"/>
+                        </Border.Effect>
+                        <Border CornerRadius="50" Background="White" Width="60" Height="60" >
+                            <Border.Effect>
+                                <DropShadowEffect Opacity=".2"/>
+                            </Border.Effect>
+                            <Button x:Name="Plus" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center"    
+                       Height="80" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="Plus_Click" >
+                                <materialDesign:PackIcon Kind="AddCircleOutline" Height="40" Width="40"/>
+                            </Button>
+                        </Border>
+                    </Border>
                 </Border>
-                <Border CornerRadius="10" Background="white" Width="160" Height="50" >
+                <Border CornerRadius="50" Background="#392437" Width="80" Height="80" >
                     <Border.Effect>
-                        <DropShadowEffect Opacity=".2"/>
+                        <DropShadowEffect Opacity=".0"/>
                     </Border.Effect>
-                    <Button x:Name="Minus" Background="Transparent" BorderThickness="0" Foreground="Black" Content="Loss" Click="Minus_Click" />
+                    <Border CornerRadius="50" Background="#a74f68" Width="70" Height="70" >
+                        <Border.Effect>
+                            <DropShadowEffect Opacity=".0"/>
+                        </Border.Effect>
+                        <Border CornerRadius="50" Background="#f08772" Width="60" Height="60" >
+                            <Border.Effect>
+                                <DropShadowEffect Opacity=".2"/>
+                            </Border.Effect>
+                            <Button x:Name="Minus" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center"   
+                       Height="80" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="Minus_Click" >
+                                <materialDesign:PackIcon Kind="RemoveCircleOutline" Height="40" Width="40"/>
+                            </Button>
+                        </Border>
+                    </Border>
                 </Border>
+
             </StackPanel>
         </Grid>
 
