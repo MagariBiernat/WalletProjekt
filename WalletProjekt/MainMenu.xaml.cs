@@ -61,11 +61,6 @@ namespace WalletProjekt
             MainContent.DataContext = Posts;
         }
 
-        private void Statistics_Click(object sender, RoutedEventArgs e)
-        {
-            StatsModel Stats = new StatsModel();
-            MainContent.DataContext = Stats;
-        }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

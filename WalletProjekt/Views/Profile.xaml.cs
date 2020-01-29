@@ -74,7 +74,15 @@ namespace WalletProjekt.Views
         {
             string firstNameChanged = firstNameVarChang.Text;
             string lastNameChanged = lastNameVarChang.Text;
-            float SalaryAmount = float.Parse(MonthSalaryAmountVarChange.Text);
+            float SalaryAmount;
+            if(MonthSalaryAmountVarChange.Text == "" || MonthSalaryAmountVarChange.Text == "0")
+            {
+                SalaryAmount = 0;
+            }
+            else
+            {
+                SalaryAmount = float.Parse(MonthSalaryAmountVarChange.Text);
+            }
             int SalaryDay = Convert.ToInt32(SalaryDayCombobox.SelectedIndex);
             /// Save Changes to Database
             user.UpdateProfileDatabase(firstNameChanged,lastNameChanged, SalaryAmount, SalaryDay, user.email);

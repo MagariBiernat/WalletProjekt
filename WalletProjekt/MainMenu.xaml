@@ -21,9 +21,6 @@
         <DataTemplate x:Name="PostsTemplate" DataType="{x:Type viewmodels:PostsModel}">
             <views:Posts DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="StatsTemplate" DataType="{x:Type viewmodels:StatsModel}">
-            <views:Stats DataContext="{Binding}"/>
-        </DataTemplate>
         <DataTemplate x:Name="ProfitTemplate" DataType="{x:Type viewmodels:ProfitModel}">
             <views:Profit DataContext="{Binding}" />
         </DataTemplate>
@@ -95,19 +92,15 @@
         </Grid>
         <Grid x:Name="MenuBar" Grid.Row="2" VerticalAlignment="Bottom" Margin="0 0 0 0" HorizontalAlignment="Center" Height="60">
             <StackPanel Orientation="Horizontal" Width="400" Height="60">
-                <Button x:Name="Home" Width="100"    
+                <Button x:Name="Home" Width="130"    
                        Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="ButtonHome_Click" >
                     <materialDesign:PackIcon Kind="Home" Height="30" Width="30"/>
                 </Button>
-                <Button x:Name="Posts" Width="100"    
+                <Button x:Name="Posts" Width="140"    
                        Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="Posts_Click" >
                     <materialDesign:PackIcon Kind="Assignment" Height="30" Width="30"/>
                 </Button>
-                <Button x:Name="Statistics" Width="100"    
-                       Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="Statistics_Click" >
-                    <materialDesign:PackIcon Kind="Equalizer" Height="30" Width="30"/>
-                </Button>
-                <Button x:Name="Profile" Width="100"    
+                <Button x:Name="Profile" Width="130"    
                        Height="60" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="Profile_Click" >
                     <materialDesign:PackIcon Kind="PermIdentity" Height="30" Width="30"/>
                 </Button>

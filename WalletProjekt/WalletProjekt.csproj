@@ -96,7 +96,6 @@
     <Compile Include="ViewModels\ProfileModel.cs" />
     <Compile Include="ViewModels\ProfitModel.cs" />
     <Compile Include="ViewModels\RegisterModel.cs" />
-    <Compile Include="ViewModels\StatsModel.cs" />
     <Compile Include="ViewModels\WasteModel.cs" />
     <Compile Include="Views\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
@@ -115,9 +114,6 @@
     </Compile>
     <Compile Include="Views\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Stats.xaml.cs">
-      <DependentUpon>Stats.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Waste.xaml.cs">
       <DependentUpon>Waste.xaml</DependentUpon>
@@ -163,10 +159,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Register.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Stats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
