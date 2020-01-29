@@ -44,45 +44,35 @@
 
             </TextBlock>
             <StackPanel Height="80" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 100 0 30" >
+                
+                <Border CornerRadius="10"  Width="80" Height="50" Margin="0 30 85 0">
+                    <Border.Background>
+                        <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#f17597" Offset="0"/>
+                            <GradientStop Color="#f08772" Offset="0.53"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Button x:Name="Plus" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center"    
+                       Height="80" Background="Transparent" BorderBrush="{x:Null}" Foreground="white" Click="Plus_Click" >
+                        <materialDesign:PackIcon Kind="AddCircleOutline" Height="40" Width="40"/>
+                    </Button>
 
-                <Border CornerRadius="50" Background="Gray" Opacity="0.3" Width="80" Height="80" Margin="0 0 190 0">
-                    <Border.Effect>
-                        <DropShadowEffect Opacity=".0"/>
-                    </Border.Effect>
-                    <Border CornerRadius="50" Background="LightGray" Width="70" Height="70" >
-                        <Border.Effect>
-                            <DropShadowEffect Opacity=".0"/>
-                        </Border.Effect>
-                        <Border CornerRadius="50" Background="White" Width="60" Height="60" >
-                            <Border.Effect>
-                                <DropShadowEffect Opacity=".2"/>
-                            </Border.Effect>
-                            <Button x:Name="Plus" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center"    
-                       Height="80" Background="Transparent" BorderBrush="{x:Null}" Foreground="Black" Click="Plus_Click" >
-                                <materialDesign:PackIcon Kind="AddCircleOutline" Height="40" Width="40"/>
-                            </Button>
-                        </Border>
-                    </Border>
                 </Border>
-                <Border CornerRadius="50" Background="#392437" Width="80" Height="80" >
-                    <Border.Effect>
-                        <DropShadowEffect Opacity=".0"/>
-                    </Border.Effect>
-                    <Border CornerRadius="50" Background="#a74f68" Width="70" Height="70" >
-                        <Border.Effect>
-                            <DropShadowEffect Opacity=".0"/>
-                        </Border.Effect>
-                        <Border CornerRadius="50" Background="#f08772" Width="60" Height="60" >
-                            <Border.Effect>
-                                <DropShadowEffect Opacity=".2"/>
-                            </Border.Effect>
-                            <Button x:Name="Minus" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center"   
-                       Height="80" Background="Transparent" BorderBrush="{x:Null}" Foreground="White" Click="Minus_Click" >
-                                <materialDesign:PackIcon Kind="RemoveCircleOutline" Height="40" Width="40"/>
-                            </Button>
-                        </Border>
-                    </Border>
+                <Border CornerRadius="10"  Width="80" Height="50" Margin="0 30 0 0">
+                    <Border.Background>
+                        <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#f17597" Offset="0"/>
+                            <GradientStop Color="#f08772" Offset="0.53"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Button x:Name="Minus" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center"    
+                       Height="80" Background="Transparent" BorderBrush="{x:Null}" Foreground="white" Click="Minus_Click" >
+                        <materialDesign:PackIcon Kind="RemoveCircleOutline" Height="40" Width="40"/>
+                    </Button>
+
                 </Border>
+               
+               
 
             </StackPanel>
         </Grid>

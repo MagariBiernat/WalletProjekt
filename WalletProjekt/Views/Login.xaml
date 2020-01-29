@@ -6,13 +6,12 @@
              xmlns:local="clr-namespace:WalletProjekt.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="680" d:DesignWidth="400" Foreground="Black" >
+             d:DesignHeight="700" d:DesignWidth="400" Foreground="Black" >
     <Grid>
-        <Grid Height="680" Width="400" Margin="0,0,0,0">
+        <Grid Height="700" Width="400" Margin="0,0,0,0">
             <StackPanel>
-                <TextBlock FontSize="13" HorizontalAlignment="Center" Foreground="white" Opacity="0.4" FontFamily="Arial" Text="Welcome in your wallet" Margin="128,0,128,0" >
-                </TextBlock>
-                <TextBlock  FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" FontFamily="Batang" Text="Login" Margin="128,20,128,92" >
+                
+                <TextBlock  FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" FontFamily="Batang" Text="Login"    Margin="0, 0, 0, 50" >
 
                 </TextBlock>
 

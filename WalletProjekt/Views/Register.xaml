@@ -14,7 +14,7 @@
             <StackPanel>
 
 
-                <TextBlock Margin="0, 0, 0, 50" FontSize="50" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Text="Sign Up"  FontFamily="Arial"   >
+                <TextBlock Margin="0, 0, 0, 50" FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Text="Sign Up"  FontFamily="Arial"   >
                        
                     </TextBlock>
 

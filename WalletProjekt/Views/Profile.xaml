@@ -68,21 +68,21 @@
                         <TextBox x:Name="lastNameVarChang"  Foreground="White" materialDesign:HintAssist.Hint="Last Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" PreviewTextInput="WordsValidationTextBox" Margin="0 10 0 10" />
                     </StackPanel>
                     
-                    <StackPanel Orientation="Horizontal" Width="300">
-                        <TextBox x:Name="MonthSalaryAmountVarChange" Foreground="White" materialDesign:HintAssist.Hint="Monthly Salary" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="120" Margin="0 10 60 10" PreviewTextInput="NumberValidationTextBox" />
+                        <StackPanel Orientation="Horizontal" Width="300">
+                            <TextBox x:Name="MonthSalaryAmountVarChange" Foreground="White" materialDesign:HintAssist.Hint="Monthly Salary" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="120" Margin="0 10 60 10" PreviewTextInput="NumberValidationTextBox" />
 
-                        <ComboBox x:Name="SalaryDayCombobox"   materialDesign:HintAssist.Hint="Salary's Day" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Right" Width="120" >
+                        <ComboBox x:Name="SalaryDayCombobox"  materialDesign:HintAssist.Hint="Salary's Day" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Right"  Width="120">
                         </ComboBox>
                         
-                  
                     </StackPanel>
-                    
-                    
+                  
+
+
                     <Border CornerRadius="10"  Width="160" Height="50" Margin="0 55 2 0">
                         <Border.Background>
                             <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
-                                <GradientStop Color="#166a87" Offset="0"/>
-                                <GradientStop Color="#3ab1b7" Offset="0.53"/>
+                                <GradientStop Color="#f17597" Offset="0"/>
+                                <GradientStop Color="#f08772" Offset="0.53"/>
                             </LinearGradientBrush>
                         </Border.Background>
                         <Button x:Name="Save" Height="50"  Background="Transparent" BorderThickness="0" Foreground="White" Content="Save" Click="Save_Click"  />
