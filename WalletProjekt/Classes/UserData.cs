@@ -31,6 +31,30 @@ namespace WalletProjekt.Classes
             balance += value;
             return balance;
         }
+        public void UpdateProfileNew()
+        {
+            SqlCommand comm = new SqlCommand();
+            SqlConnection myCon = new SqlConnection(conn);
+            using(myCon)
+            {
+                myCon.Open();
+                comm.Connection = myCon;
+                comm.CommandText = "SELECT firstName, lastName, monthly_salary, dayofmonth_salary FROM Users WHERE email = @email";
+                comm.Parameters.AddWithValue("@email", this.email);
+                SqlDataReader reader = comm.ExecuteReader();
+                if(reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        this.firstName = reader["firstName"].ToString();
+                        this.lastName = reader["lastName"].ToString();
+                        this.SalaryAmount = float.Parse(reader["monthly_salary"].ToString());
+                        this.SalaryDay = Convert.ToInt32(reader["dayofmonth_salary"]);
+                        break;
+                    }
+                }
+            }
+        }
         public bool UpdateProfileDatabase(string firstN, string lastN, float SalaryA, int SalaryD, string email)
         {
             SqlCommand comm = new SqlCommand();

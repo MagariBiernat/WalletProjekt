@@ -26,14 +26,10 @@
                             <TextBlock Height="25"  x:Name="LastNameVar" FontSize="16px" Text="" Foreground="White" HorizontalAlignment="Center" />
                         </StackPanel>
                     </StackPanel>
-                    
+
                     <StackPanel>
                         <TextBlock Padding="1" Text="E-mail" Foreground="Gray" HorizontalAlignment="Center" Margin="3"/>
                         <TextBlock Height="25"  x:Name="EmailVar" FontSize="16px" Text="" Foreground="White" HorizontalAlignment="Center" />
-                    </StackPanel>
-                    <StackPanel>
-                        <TextBlock Padding="1" Text="Last login" Foreground="Gray" HorizontalAlignment="Center" Margin="3"/>
-                        <TextBlock Height="25"  x:Name="LastLoginDateVar" FontSize="16px" Foreground="White" Text="" HorizontalAlignment="Center" />
                     </StackPanel>
                     <StackPanel>
                         <TextBlock Padding="1" Text="Monthly salary" Foreground="Gray" HorizontalAlignment="Center" Margin="3"/>

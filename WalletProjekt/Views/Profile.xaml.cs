@@ -46,12 +46,16 @@ namespace WalletProjekt.Views
         }
         public void FillProfile()
         {
-            FirstNameVar.Text = user.firstName;
-            LastNameVar.Text = user.lastName;
-            EmailVar.Text = user.email;
-            LastLoginDateVar.Text = user.lastLoginDate.ToShortDateString();
-            MonthSalaryAmountVar.Text = user.SalaryAmount.ToString();
-            SalaryDayVar.Text = "Every " + user.SalaryDay + "th of the month.";
+            UserData obj = new UserData
+            {
+                email = user.email
+            };
+            obj.UpdateProfileNew();
+            FirstNameVar.Text = obj.firstName;
+            LastNameVar.Text = obj.lastName;
+            EmailVar.Text = obj.email;
+            MonthSalaryAmountVar.Text = obj.SalaryAmount.ToString();
+            SalaryDayVar.Text = "Every " + obj.SalaryDay + "th of the month.";
 
 
         }
@@ -90,6 +94,7 @@ namespace WalletProjekt.Views
             }
             /// Save Changes to Database
             user.UpdateProfileDatabase(firstNameChanged,lastNameChanged, SalaryAmount, SalaryDay, user.email);
+            FillProfile();
             InfoChange.Visibility = Visibility.Hidden;
             Info.Visibility = Visibility.Visible;
             
