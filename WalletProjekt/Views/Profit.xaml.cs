@@ -56,13 +56,24 @@ namespace WalletProjekt.Views
                 bool result = post.AddNewPost(Amount, "profit", "yes",  desc, user.email, user.userId);
                 if (result)
                 {
+                    UpdateBalance(Amount);
+
                     MessageBox.Show("Post has been added.");
                 }
                 else
                     MessageBox.Show("An error occured.");   
             }
         }
+        private void UpdateBalance(float amount)
+        {
+            var parent = VisualTreeHelper.GetParent(this);
+            while (!(parent is Page))
+            {
+                parent = VisualTreeHelper.GetParent(parent);
+            }
 
+            (parent as MainMenu).UpdateBalance(amount);
+        }
         private void AmountTextBox_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
         {
 

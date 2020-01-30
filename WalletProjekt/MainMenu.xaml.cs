@@ -42,6 +42,13 @@ namespace WalletProjekt
             float balance = user.GetBalance();
             BalanceVar.Text = balance.ToString();
         }
+        public void UpdateBalance(float value)
+        {
+            float balance = user.GetBalance();
+            balance += value;
+            user.balance = balance;
+            BalanceVar.Text = balance.ToString();
+        }
 
         private void ButtonHome_Click(object sender, RoutedEventArgs e)
         {

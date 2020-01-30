@@ -26,6 +26,11 @@ namespace WalletProjekt.Classes
         {
             return balance;
         }
+        public float UpdateBalance(float value)
+        {
+            balance += value;
+            return balance;
+        }
         public bool UpdateProfileDatabase(string firstN, string lastN, float SalaryA, int SalaryD, string email)
         {
             SqlCommand comm = new SqlCommand();
@@ -37,6 +42,7 @@ namespace WalletProjekt.Classes
                 comm.Parameters.AddWithValue("@lastName", lastN);
                 comm.Parameters.AddWithValue("@salaryAmount", SalaryA);
                 comm.Parameters.AddWithValue("@salaryDay", SalaryD);
+                comm.Parameters.AddWithValue("@email", email);
                 using (comm)
                 {
                     myCon.Open();
