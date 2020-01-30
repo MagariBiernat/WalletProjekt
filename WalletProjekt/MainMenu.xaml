@@ -48,8 +48,8 @@
                 <Border CornerRadius="10"  Width="80" Height="50" Margin="0 30 85 0">
                     <Border.Background>
                         <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="#f17597" Offset="0"/>
-                            <GradientStop Color="#f08772" Offset="0.53"/>
+                            
+                            <GradientStop Color="CadetBlue" Offset="0.53"/>
                         </LinearGradientBrush>
                     </Border.Background>
                     <Button x:Name="Plus" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center"    
@@ -61,8 +61,8 @@
                 <Border CornerRadius="10"  Width="80" Height="50" Margin="0 30 0 0">
                     <Border.Background>
                         <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="#f17597" Offset="0"/>
-                            <GradientStop Color="#f08772" Offset="0.53"/>
+                            <GradientStop Color="IndianRed" Offset="0"/>
+
                         </LinearGradientBrush>
                     </Border.Background>
                     <Button x:Name="Minus" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center"    

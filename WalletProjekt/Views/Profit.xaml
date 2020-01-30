@@ -15,7 +15,18 @@
 
             <TextBox Name="AmountTextBox"  PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="white" materialDesign:HintAssist.Hint="Amount" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 10 0 15" />
             <TextBox x:Name="DescriptionVar" Foreground="white" materialDesign:HintAssist.Hint="Description" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 0" />
-            <Button x:Name="ProfitSubmit" Width="130" Content="Submit" Foreground="White" FontSize="15" Margin="0 30 0 0" Height="40"  Click="ProfitSubmit_Click"/>
+            
+            <Border CornerRadius="10"  Width="160" Height="50" Margin="0 49 0 0">
+                <Border.Background>
+                    <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#f17597" Offset="0"/>
+                        <GradientStop Color="#f08772" Offset="0.53"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Button x:Name="ProfitSubmit" Background="Transparent"  BorderThickness="0" Foreground="White" Content="Submit" Click="ProfitSubmit_Click"/>
+
+
+            </Border>
         </StackPanel>
     </Grid>
 </UserControl>

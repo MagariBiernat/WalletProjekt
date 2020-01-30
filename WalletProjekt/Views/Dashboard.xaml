@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WalletProjekt.Views"
              xmlns:viewModels="clr-namespace:WalletProjekt.ViewModels"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="385" d:DesignWidth="400"
              Loaded="Dashboard_Loaded">
@@ -38,7 +39,31 @@
                         </StackPanel>
 
                     </Grid>-->
+                    <lvc:Gauge 
+                           
+                        Height="140"
+                   From="0" To="-3000" Value="-1560"
+                   Uses360Mode="True"
+                   HighFontSize="20" Foreground="white"
+                   FromColor="White" ToColor="White"
+                   GaugeBackground="Transparent"
+                   LabelsVisibility="Collapsed"   RenderTransformOrigin="0.5,0.5">
+                        <lvc:Gauge.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-0.284"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </lvc:Gauge.RenderTransform>
+                        <lvc:Gauge.GaugeActiveFill>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#f17597" Offset="0.0" />
 
+                                <GradientStop Color="Orange" Offset="1.7" />
+                            </LinearGradientBrush>
+                        </lvc:Gauge.GaugeActiveFill>
+                    </lvc:Gauge>
                 </StackPanel>
 
             </Grid>
