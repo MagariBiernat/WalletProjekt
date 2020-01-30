@@ -39,13 +39,15 @@ namespace WalletProjekt.Views
         private void GetUser()
         {
             user = ((MainWindow)App.Current.MainWindow).GetUserData();
+            
+            
         }
         private void Last30Days()
         {
             Classes.Posts Last30Days = new Classes.Posts();
             Last30Days.useremail = user.email;
             float balance = Last30Days.ReadLastMonth(user.userId);
-
+            GaugeVar.Value = balance;
             LastMonthBalanceVar.Text = balance.ToString();
         }
         private void AverageDaily()
@@ -60,6 +62,7 @@ namespace WalletProjekt.Views
         {
             Last30Days();
             AverageDaily();
+            
         }
     }
    

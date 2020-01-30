@@ -9,6 +9,25 @@
              d:DesignHeight="385" d:DesignWidth="400"
              Loaded="UserControl_Loaded">
     <Grid>
+        <materialDesign:DialogHost CloseOnClickAway="True">
+            <materialDesign:DialogHost.DialogContentTemplate>
+                <DataTemplate DataType="local:Info">
+                    <Grid MinWidth="100" MinHeight="100">
+                        <StackPanel Margin="20">
+                            
+                            <StackPanel Margin="0 0 0 21" Orientation="Horizontal">
+                                <TextBlock Text="Post added successfully " />
+                            </StackPanel>
+                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}" Margin="4" VerticalAlignment="Center">
+                                Close
+                            </Button>
+                        </StackPanel>
+
+
+                    </Grid>
+                </DataTemplate>
+            </materialDesign:DialogHost.DialogContentTemplate>
+        </materialDesign:DialogHost>
         <StackPanel Margin="0 15 0 0" Width="400" HorizontalAlignment="Center">
             <TextBlock Text="Your new income" VerticalAlignment="Top" HorizontalAlignment="Center"
                            FontSize="35" Foreground="White"/>

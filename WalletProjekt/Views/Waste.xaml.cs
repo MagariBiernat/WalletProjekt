@@ -62,7 +62,8 @@ namespace WalletProjekt.Views
                     if (result)
                     {
                         UpdateBalance(Amount);
-                        MessageBox.Show("Post has been added.");
+                        var info = new Info();
+                        MaterialDesignThemes.Wpf.DialogHost.Show(info);
                     }
                     else
                         MessageBox.Show("An error occured.");

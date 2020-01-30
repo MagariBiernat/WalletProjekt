@@ -40,7 +40,7 @@
 
                     </Grid>-->
                     <lvc:Gauge 
-                           
+                           x:Name="GaugeVar"
                         Height="140"
                    From="0" To="-3000" Value="-1560"
                    Uses360Mode="True"

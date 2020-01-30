@@ -57,8 +57,8 @@ namespace WalletProjekt.Views
                 if (result)
                 {
                     UpdateBalance(Amount);
-
-                    MessageBox.Show("Post has been added.");
+                    var info = new Info();
+                    MaterialDesignThemes.Wpf.DialogHost.Show(info);
                 }
                 else
                     MessageBox.Show("An error occured.");   
@@ -77,6 +77,14 @@ namespace WalletProjekt.Views
         private void AmountTextBox_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
         {
 
+        }
+    }
+    public class Info
+    {
+        public string text = "Post added successfully";
+        public Info()
+        {
+            text = "Post added successfully";
         }
     }
 }

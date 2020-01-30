@@ -50,7 +50,7 @@ namespace WalletProjekt.Views
             int ResultLogin = ValidateLogin(email, password);
             if(ResultLogin == 1)
             {
-                MessageBox.Show("Zalogowano pomyslnie");
+                //MessageBox.Show("Zalogowano pomyslnie");
                 ReceiveAllDataFromDatabase(email);
               ((MainWindow)App.Current.MainWindow).LoginSuccesGoMainMenu();
             }

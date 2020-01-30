@@ -88,7 +88,7 @@ namespace WalletProjekt.Classes
                             else
                             {
                                 float i = float.Parse(reader["amount"].ToString());
-                                lastMonthBalance -= Convert.ToSingle(i);
+                                lastMonthBalance += Convert.ToSingle(i);
                             }
                         }
 
