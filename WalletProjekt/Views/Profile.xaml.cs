@@ -62,7 +62,7 @@ namespace WalletProjekt.Views
         }
         private void WordsValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[A-Za-z]+");
+            Regex regex = new Regex("[^A-Za-z]+");
             e.Handled = regex.IsMatch(e.Text);
         }
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -75,6 +75,7 @@ namespace WalletProjekt.Views
             string firstNameChanged = firstNameVarChang.Text;
             string lastNameChanged = lastNameVarChang.Text;
             float SalaryAmount;
+            int SalaryDay = 1;
             if(MonthSalaryAmountVarChange.Text == "" || MonthSalaryAmountVarChange.Text == "0")
             {
                 SalaryAmount = 0;
@@ -83,7 +84,10 @@ namespace WalletProjekt.Views
             {
                 SalaryAmount = float.Parse(MonthSalaryAmountVarChange.Text);
             }
-            int SalaryDay = Convert.ToInt32(SalaryDayCombobox.SelectedIndex);
+            if(!(SalaryDayCombobox.SelectedIndex < 1) || !(SalaryDayCombobox.SelectedIndex > 28))
+            {
+                SalaryDay = Convert.ToInt32(SalaryDayCombobox.SelectedIndex);
+            }
             /// Save Changes to Database
             user.UpdateProfileDatabase(firstNameChanged,lastNameChanged, SalaryAmount, SalaryDay, user.email);
             InfoChange.Visibility = Visibility.Hidden;
