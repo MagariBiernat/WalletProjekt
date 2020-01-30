@@ -18,6 +18,9 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 
 namespace WalletProjekt.Views
 {
@@ -39,7 +42,7 @@ namespace WalletProjekt.Views
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            for (int i = 1; i <= 28 ; i++)
+            for (int i = 1; i <= 28; i++)
             {
                 SalaryDayCombobox.Items.Add(i.ToString());
             }
@@ -84,7 +87,7 @@ namespace WalletProjekt.Views
             string lastNameChanged = lastNameVarChang.Text;
             float SalaryAmount;
             int SalaryDay = 1;
-            if(MonthSalaryAmountVarChange.Text == "" || MonthSalaryAmountVarChange.Text == "0")
+            if (MonthSalaryAmountVarChange.Text == "" || MonthSalaryAmountVarChange.Text == "0")
             {
                 SalaryAmount = 0;
             }
@@ -92,16 +95,16 @@ namespace WalletProjekt.Views
             {
                 SalaryAmount = float.Parse(MonthSalaryAmountVarChange.Text);
             }
-            if(!(SalaryDayCombobox.SelectedIndex < 1) || !(SalaryDayCombobox.SelectedIndex > 28))
+            if (!(SalaryDayCombobox.SelectedIndex < 1) || !(SalaryDayCombobox.SelectedIndex > 28))
             {
                 SalaryDay = Convert.ToInt32(SalaryDayCombobox.SelectedIndex);
             }
             /// Save Changes to Database
-            user.UpdateProfileDatabase(firstNameChanged,lastNameChanged, SalaryAmount, SalaryDay, user.email);
+            user.UpdateProfileDatabase(firstNameChanged, lastNameChanged, SalaryAmount, SalaryDay, user.email);
             FillProfile();
             InfoChange.Visibility = Visibility.Hidden;
             Info.Visibility = Visibility.Visible;
-            
+
         }
 
         private void Export_Click(object sender, RoutedEventArgs e)
@@ -111,15 +114,15 @@ namespace WalletProjekt.Views
 
             SqlCommand comm = new SqlCommand();
             SqlConnection connn = new SqlConnection(conn);
-            using(connn)
+            using (connn)
             {
                 comm.CommandText = "SELECT amount, category, profit, datetime FROM " + dbname + " ORDER BY datetime DESC";
                 connn.Open();
                 comm.Connection = connn;
                 SqlDataReader reader = comm.ExecuteReader();
-                if(reader.HasRows)
+                if (reader.HasRows)
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         lista.Add(new Posty()
                         {
@@ -127,28 +130,44 @@ namespace WalletProjekt.Views
                             Datetime = reader["datetime"].ToString(),
                             category = reader["category"].ToString(),
                             profit = reader["profit"].ToString()
-                        }) ;
-                        
+                        });
+
                     }
                 }
 
+                //}
+                //IWorkbook wb = new XSSFWorkbook();
+                //ISheet sheet = wb.CreateSheet("Sheet1 ");
+                //IRow row1 = sheet.CreateRow(0);
+
+
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Amount, Date, Category, Profit");
+                int i = 0;
+                foreach (var item in lista)
+                {
+
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter("posts.txt", true))
+                    {
+                        if(i == 0)
+                        {
+                            file.WriteLine("Amount, DateTime, Category,Profit");
+                        }
+                        file.WriteLine($"{item.Amount},{item.Datetime},{item.category},{item.profit}");
+                    }
+                    i++;
+
+                }
+
+
             }
-
-
-            StringBuilder sb = new StringBuilder(); 
-            sb.AppendLine("Amount, Date, Category, Profit");
-            foreach (var item in lista)
-            {
-                sb.AppendLine($"{item.Amount},{item.Datetime},{item.category},{item.profit}");
-            }
-
         }
-    }
-    class Posty
-    {
-        public string Amount { get; set; }
-        public string Datetime { get; set; }
-        public string category { get; set; }
-        public string profit { get; set; }
+        class Posty
+        {
+            public string Amount { get; set; }
+            public string Datetime { get; set; }
+            public string category { get; set; }
+            public string profit { get; set; }
+        }
     }
 }
