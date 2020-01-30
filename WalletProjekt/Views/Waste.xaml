@@ -15,8 +15,14 @@
             
            
             <TextBox Name="AmountTextBox"  PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="white" materialDesign:HintAssist.Hint="Amount" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 10 0 15" />
-            <ComboBox x:Name="CategoriesCombobox" Width="100" Margin="17 5 0 10" FontSize="20" HorizontalContentAlignment="Center" Foreground="White" Background="Transparent" materialDesign:HintAssist.Hint="Category">
-
+            <ComboBox x:Name="CategoriesCombobox" Background="Black" Width="100" Margin="17 5 0 10" FontSize="20" HorizontalContentAlignment="Center" Foreground="White"  materialDesign:HintAssist.Hint="Category">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="black"/>
+                        <Setter Property="BorderBrush" Value="black"/>
+                        <Setter Property="Foreground" Value="white"/>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
             </ComboBox>
             
             <TextBox x:Name="DescriptionVar" Foreground="white" materialDesign:HintAssist.Hint="Description" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 0" />
