@@ -99,13 +99,13 @@ namespace WalletProjekt.Classes
             using (SqlConnection myCon = new SqlConnection(conn))
             using (myCon)
             {
-                comm.CommandText = "CREATE TABLE [dbo].['" + databasename + "']" +
+                comm.CommandText = "CREATE TABLE "+ databasename +" " +
                                     "([Id] INT IDENTITY (1, 1) NOT NULL," +
                                     "[amount] FLOAT NOT NULL," +
                                     "[category] NVARCHAR(50) NOT NULL," +
                                     "[profit]    NVARCHAR (15)  NOT NULL,"+
                                     "[datetime] DATETIME2 NOT NULL," +
-                                    "[description]     NVARCHAR (255) NOT NULL DEFAULT 'brak', PRIMARY KEY CLUSTERED([Id] ASC)";
+                                    "[description]     NVARCHAR (255) NOT NULL DEFAULT 'brak', PRIMARY KEY CLUSTERED([Id] ASC))";
                 using (comm)
                 {
                     myCon.Open();

@@ -113,7 +113,7 @@ namespace WalletProjekt.Views
             SqlConnection connn = new SqlConnection(conn);
             using(connn)
             {
-                comm.CommandText = "SELECT amount, category, profit, datetime, description FROM " + dbname + " ORDER BY datetime DESC";
+                comm.CommandText = "SELECT amount, category, profit, datetime FROM " + dbname + " ORDER BY datetime DESC";
                 connn.Open();
                 comm.Connection = connn;
                 SqlDataReader reader = comm.ExecuteReader();
@@ -123,32 +123,32 @@ namespace WalletProjekt.Views
                     {
                         lista.Add(new Posty()
                         {
-                            Amount = float.Parse(reader["amount"].ToString()),
+                            Amount = reader["amount"].ToString(),
                             Datetime = reader["datetime"].ToString(),
                             category = reader["category"].ToString(),
-                            profit = float.Parse(reader["profit"].ToString()),
-                            description = reader["description"].ToString()
+                            profit = reader["profit"].ToString()
                         }) ;
                         
                     }
                 }
 
             }
+
+
             StringBuilder sb = new StringBuilder(); 
-            sb.AppendLine("Amount, Date, Category, Profit, Description");
+            sb.AppendLine("Amount, Date, Category, Profit");
             foreach (var item in lista)
             {
-                sb.AppendLine($"{item.Amount},{item.Datetime},{item.category},{item.profit},{item.description}");
+                sb.AppendLine($"{item.Amount},{item.Datetime},{item.category},{item.profit}");
             }
 
         }
     }
     class Posty
     {
-        public float Amount { get; set; }
+        public string Amount { get; set; }
         public string Datetime { get; set; }
         public string category { get; set; }
-        public float profit { get; set; }
-        public string description { get; set; }
+        public string profit { get; set; }
     }
 }
