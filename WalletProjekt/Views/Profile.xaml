@@ -71,9 +71,12 @@
                         <StackPanel Orientation="Horizontal" Width="300">
                             <TextBox x:Name="MonthSalaryAmountVarChange" Foreground="White" materialDesign:HintAssist.Hint="Monthly Salary" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="120" Margin="0 10 60 10" PreviewTextInput="NumberValidationTextBox" />
 
-                        <ComboBox x:Name="SalaryDayCombobox"  materialDesign:HintAssist.Hint="Salary's Day" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Right"  Width="120">
+                        <ComboBox x:Name="SalaryDayCombobox"  Background="black"  Foreground="white" materialDesign:HintAssist.Hint="Salary's Day"  Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Right"  Width="120">
+                            
                         </ComboBox>
-                        
+                            
+                       
+
                     </StackPanel>
                   
 
