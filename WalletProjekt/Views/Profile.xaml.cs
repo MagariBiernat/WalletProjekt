@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 using WalletProjekt.Classes;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace WalletProjekt.Views
 {
@@ -24,6 +26,8 @@ namespace WalletProjekt.Views
     /// </summary>
     public partial class Profile : UserControl
     {
+        private string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
+
         UserData user;
         public Profile()
         {
@@ -100,6 +104,51 @@ namespace WalletProjekt.Views
             
         }
 
-        
+        private void Export_Click(object sender, RoutedEventArgs e)
+        {
+            List<Posty> lista = new List<Posty>();
+            string dbname = "PostsDatabase" + user.userId.ToString();
+
+            SqlCommand comm = new SqlCommand();
+            SqlConnection connn = new SqlConnection(conn);
+            using(connn)
+            {
+                comm.CommandText = "SELECT amount, category, profit, datetime, description FROM " + dbname + " ORDER BY datetime DESC";
+                connn.Open();
+                comm.Connection = connn;
+                SqlDataReader reader = comm.ExecuteReader();
+                if(reader.HasRows)
+                {
+                    while(reader.Read())
+                    {
+                        lista.Add(new Posty()
+                        {
+                            Amount = float.Parse(reader["amount"].ToString()),
+                            Datetime = reader["datetime"].ToString(),
+                            category = reader["category"].ToString(),
+                            profit = float.Parse(reader["profit"].ToString()),
+                            description = reader["description"].ToString()
+                        }) ;
+                        
+                    }
+                }
+
+            }
+            StringBuilder sb = new StringBuilder(); 
+            sb.AppendLine("Amount, Date, Category, Profit, Description");
+            foreach (var item in lista)
+            {
+                sb.AppendLine($"{item.Amount},{item.Datetime},{item.category},{item.profit},{item.description}");
+            }
+
+        }
+    }
+    class Posty
+    {
+        public float Amount { get; set; }
+        public string Datetime { get; set; }
+        public string category { get; set; }
+        public float profit { get; set; }
+        public string description { get; set; }
     }
 }

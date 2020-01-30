@@ -62,6 +62,8 @@ namespace WalletProjekt.Views
         {
             Last30Days();
             AverageDaily();
+            user.UpdateProfileNew();
+            GaugeVar.To = (Convert.ToInt32(user.SalaryAmount) * -1);
             
         }
     }
